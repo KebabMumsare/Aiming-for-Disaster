@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] Transform weaponPivot;
 
+    bool previousAttackHeld;
+
     void Reset()
     {
         inputRouter = GetComponent<PlayerInputRouter>();
@@ -20,8 +22,12 @@ public class PlayerAttack : MonoBehaviour
         if (inputRouter == null)
             return;
 
-        if (inputRouter.AttackPressed)
-            Attack();
+        bool attackHeld = inputRouter.AttackPressed;
+
+        if (attackHeld && !previousAttackHeld)
+            weapon.Attack();     // call once when the button is first pressed
+
+        previousAttackHeld = attackHeld;
 
         DrawAimDebugLine();
         UpdateWeaponAim();

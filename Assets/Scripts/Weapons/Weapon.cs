@@ -9,10 +9,10 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected Collider2D attackCollider;
     [SerializeField] protected LayerMask enemyLayer;
 
-    [SerializeField] SpriteRenderer weaponVisual;
-    [SerializeField] Collider2D weaponCollider;
-    [SerializeField] float attackFlashDuration = 0.1f;
-    Coroutine attackRoutine;
+    [SerializeField] protected SpriteRenderer weaponVisual;
+    [SerializeField] protected Collider2D weaponCollider;
+    [SerializeField] protected float attackFlashDuration = 0.1f;
+    protected Coroutine attackRoutine;
 
     public void TriggerAttackFlash()
     {
@@ -34,7 +34,8 @@ public abstract class Weapon : MonoBehaviour
         attackRoutine = null;
     }
 
-    public abstract void Attack();
     public abstract void Awake();
+    public abstract void Update();
+    public abstract void Attack();
     public abstract void OnTriggerEnter2D(Collider2D other);
 }
