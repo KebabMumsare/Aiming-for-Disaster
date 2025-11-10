@@ -1,19 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] PlayerInputRouter inputRouter;
-    [SerializeField] float attackRange = 1f;
-    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] Weapon weapon;
+    [SerializeField] Transform weaponHoldingPoint;
 
-    BoxCollider2D attackCollider;
+    [SerializeField] Transform weaponPivot;
 
     void Reset()
     {
         inputRouter = GetComponent<PlayerInputRouter>();
-        attackCollider = GetComponent<BoxCollider2D>();
+        //attackCollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -25,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
             Attack();
 
         DrawAimDebugLine();
+        UpdateWeaponAim();
     }
 
     void DrawAimDebugLine()
@@ -42,8 +42,22 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attack");
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+        //Debug.Log("Attack");
+        weapon.Attack();
+    }
+
+    void UpdateWeaponAim()
+    {
+        if (Camera.main == null || Mouse.current == null || weaponPivot == null)
+            return;
+
+        Vector3 mouseScreen = new Vector3(Mouse.current.position.ReadValue().x,
+                                          Mouse.current.position.ReadValue().y,
+                                          Mathf.Abs(Camera.main.transform.position.z - weaponPivot.position.z));
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
+
+        Vector2 aimDirection = (mouseWorld - weaponPivot.position).normalized;
+        weaponPivot.up = aimDirection;          // or .up if your art points up
     }
 
     void OnDrawGizmosSelected()
