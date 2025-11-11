@@ -52,7 +52,12 @@ public class AR : Weapon
         weaponCollider.enabled = true;
         weaponVisual.enabled = true;
 
-        yield return new WaitForSeconds(attackFlashDuration);
+        float timeRemaining = attackFlashDuration;
+        while (timeRemaining > 0f)
+        {
+            timeRemaining -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
 
         weaponCollider.enabled = false;
         weaponVisual.enabled = false;
@@ -62,9 +67,11 @@ public class AR : Weapon
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == enemyLayer)
+        Debug.Log("OnTriggerEnter2D: " + other.gameObject.name);
+        if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit enemy with " + weaponName);
+            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage + " damage");
+            other.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8548184189902075381}
   - component: {fileID: 145160359984843126}
+  - component: {fileID: 8595986796566734490}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -52,11 +53,38 @@ MonoBehaviour:
   attackCollider: {fileID: 5484509743732781606}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   weaponVisual: {fileID: 0}
   weaponCollider: {fileID: 5484509743732781606}
   attackFlashDuration: 0.1
   spreadVisual: {fileID: 2246170997808443320}
+--- !u!50 &8595986796566734490
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497970257941288861}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1258864952662425190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,6 +144,10 @@ PrefabInstance:
     - target: {fileID: 5688534482212851141, guid: ae27875ca3d13874a8d1cd6333a41c50, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729652782623460416, guid: ae27875ca3d13874a8d1cd6333a41c50, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6729652782623460416, guid: ae27875ca3d13874a8d1cd6333a41c50, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
