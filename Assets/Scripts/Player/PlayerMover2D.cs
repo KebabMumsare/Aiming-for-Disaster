@@ -6,7 +6,6 @@ public class PlayerMover2D : MonoBehaviour
 {
     [SerializeField] PlayerInputRouter inputRouter;
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] bool faceMovementDirection = false;
 
     void Reset()
     {
@@ -25,8 +24,5 @@ public class PlayerMover2D : MonoBehaviour
 
         Vector3 displacement = (Vector3)(moveInput * moveSpeed * Time.deltaTime);
         transform.position += displacement;
-
-        if (faceMovementDirection && moveInput.sqrMagnitude > 0.001f)
-            transform.up = moveInput;
     }
 }
