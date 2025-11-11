@@ -52,7 +52,7 @@ MonoBehaviour:
   attackCollider: {fileID: 8869971685939063622}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   weaponVisual: {fileID: 5122067641703288671}
   weaponCollider: {fileID: 8869971685939063622}
   attackFlashDuration: 0.1
