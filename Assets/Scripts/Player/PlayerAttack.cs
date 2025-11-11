@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
         inputRouter = GetComponent<PlayerInputRouter>();
         //attackCollider = GetComponent<BoxCollider2D>();
     }
+    
 
     void Update()
     {
