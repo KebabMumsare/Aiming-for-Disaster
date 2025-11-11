@@ -67,7 +67,8 @@ public class AR : Weapon
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == enemyLayer)
+        Debug.Log("OnTriggerEnter2D: " + other.gameObject.name);
+        if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage + " damage");
             other.gameObject.GetComponent<Health>().TakeDamage(damage);
