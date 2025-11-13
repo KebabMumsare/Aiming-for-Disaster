@@ -7,13 +7,12 @@ public class AR : Weapon
     public override void Awake()
     {
         weaponName = "AR";
-        damage = 10;
+        damage = GetComponent<Damage>();
         attackSpeed = 0.1f;
         attackCooldown = 0f;
         attackCollider = GetComponent<BoxCollider2D>();
         weaponVisual.enabled = false;
         weaponCollider.enabled = false;
-        attackCooldown = 0f;
         isAttackWindowOpen = false;
     }
 
@@ -70,8 +69,8 @@ public class AR : Weapon
         Debug.Log("OnTriggerEnter2D: " + other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage + " damage");
-            other.gameObject.GetComponent<Health>().TakeDamage(damage);
+            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage");
+            other.gameObject.GetComponent<Health>().TakeDamage(damage.GetDamage());
         }
     }
 }
