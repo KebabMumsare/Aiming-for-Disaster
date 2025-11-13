@@ -8,7 +8,7 @@ public class Shotgun : Weapon
     public override void Awake()
     {
         weaponName = "Shotgun";
-        damage = 10;
+        damage = GetComponent<Damage>();
         attackSpeed = 0.5f;
         attackCooldown = 1f;
         attackCollider = GetComponent<BoxCollider2D>();
@@ -73,8 +73,8 @@ public class Shotgun : Weapon
         Debug.Log("OnTriggerEnter2D: " + other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage + " damage");
-            other.gameObject.GetComponent<Health>().TakeDamage(damage);
+            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage");
+            other.gameObject.GetComponent<Health>().TakeDamage(damage.GetDamage());
         }
     }
 }

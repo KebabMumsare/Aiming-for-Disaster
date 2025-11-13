@@ -45,7 +45,7 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("Hit enemy with " + other.gameObject.name);
-            TakeDamage(10);
+            TakeDamage(other.gameObject.GetComponent<Damage>().GetDamage());
         }
     }
 }

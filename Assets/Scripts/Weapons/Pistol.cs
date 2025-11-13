@@ -15,7 +15,7 @@ public class Pistol : Weapon
     public override void Awake()
     {
         weaponName = "Pistol";
-        damage = 10;
+        damage = GetComponent<Damage>();
         attackSpeed = 0.3f;
         attackCooldown = 0f;
         attackCollider = GetComponent<CircleCollider2D>();
@@ -107,8 +107,8 @@ public class Pistol : Weapon
         Debug.Log("OnTriggerEnter2D: " + other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage + " damage");
-            other.gameObject.GetComponent<Health>().TakeDamage(damage);
+            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage");
+            other.gameObject.GetComponent<Health>().TakeDamage(damage.GetDamage());
         }
     }
 }

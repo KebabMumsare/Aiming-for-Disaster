@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6609606905589086557}
   - component: {fileID: 2348936947857338709}
   - component: {fileID: 7529909059912820161}
+  - component: {fileID: -5641813181895204418}
   m_Layer: 0
   m_Name: AR
   m_TagString: Untagged
@@ -84,6 +85,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5641813181895204418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211755348097550045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7545fb4b4491de43b902825dd04f542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &8300676737442341737
 GameObject:
   m_ObjectHideFlags: 0

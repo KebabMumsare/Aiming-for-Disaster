@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8548184189902075381}
   - component: {fileID: 145160359984843126}
   - component: {fileID: 8595986796566734490}
+  - component: {fileID: -132737504581453495}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Shotgun
-  damage: 10
+  damage: {fileID: 0}
   attackSpeed: 1
   attackCooldown: 2
   attackCollider: {fileID: 5484509743732781606}
@@ -85,6 +86,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-132737504581453495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497970257941288861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7545fb4b4491de43b902825dd04f542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1001 &1258864952662425190
 PrefabInstance:
   m_ObjectHideFlags: 0

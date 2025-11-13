@@ -3,7 +3,7 @@ using System.Collections;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] public string weaponName;
-    [SerializeField] protected float damage;
+    [SerializeField] protected Damage damage;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected float attackCooldown;
     [SerializeField] protected Collider2D attackCollider;
