@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Shotgun
-  damage: 10
+  damage: {fileID: 0}
   attackSpeed: 1
   attackCooldown: 2
   attackCollider: {fileID: 5484509743732781606}
