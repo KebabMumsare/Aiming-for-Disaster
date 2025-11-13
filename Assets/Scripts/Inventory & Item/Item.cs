@@ -31,7 +31,8 @@ public enum ItemType
 
 public enum ActionType
 {
-    Shoot,
+    Throw,
+    BoomerangThrow,
     Melee,
     Use
 }
