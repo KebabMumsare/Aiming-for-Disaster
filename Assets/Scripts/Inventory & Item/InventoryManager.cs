@@ -18,6 +18,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+        // Check for number key input to change selected slot
         if (Input.inputString != null)
         {
             bool isNumber = int.TryParse(Input.inputString, out int number);
@@ -28,6 +29,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // Changes the selected inventory slot
     void ChangeSelectedSlot(int newValue)
     {
         if (selectedSlot >= 0)
@@ -39,6 +41,7 @@ public class InventoryManager : MonoBehaviour
         selectedSlot = newValue;
     }
 
+    // Adds an item to the inventory - used in PickupItem.cs
     public bool AddItem(Item item)
     {
         // Check if any slot has the same item with count lower than max
@@ -70,6 +73,7 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
+    // Spawns a new item in the given slot
     void SpawnNewItem(Item item, InventorySlot slot)
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
@@ -77,6 +81,7 @@ public class InventoryManager : MonoBehaviour
         inventoryItem.InitialiseItem(item);
     }
 
+    // use item logic
     public Item GetSelectedItem(bool use)
     {
         InventorySlot slot = inventorySlots[selectedSlot];
@@ -96,7 +101,7 @@ public class InventoryManager : MonoBehaviour
                     itemInSlot.RefreshCount();
                 }
             }
-            
+
             return item;
         }
 
