@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public int maxStackedItems = 4;
+    // The maxStackedItems variable is no longer needed here.
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
@@ -49,7 +49,8 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems && itemInSlot.item.stackable == true)
+            // Use item.maxStack instead of maxStackedItems
+            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < item.maxStack && item.stackable == true)
             {
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
