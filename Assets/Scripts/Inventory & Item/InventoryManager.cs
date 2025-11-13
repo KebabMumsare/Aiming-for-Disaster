@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    // The maxStackedItems variable is no longer needed here.
+    [Header("Assign 'MainInventoryGroup'")]
+    public GameObject mainInventoryPanel; // assign MainInventoryGroup to this one
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
@@ -14,10 +15,47 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         ChangeSelectedSlot(0);
+        if (mainInventoryPanel != null)
+        {
+            mainInventoryPanel.SetActive(false); // Start with the inventory hidden
+        }
     }
 
     private void Update()
     {
+        // if "I" is pressed down, toggle inventory panel
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (mainInventoryPanel != null)
+            {
+                // This will toggle the panel's active state on/off
+                mainInventoryPanel.SetActive(!mainInventoryPanel.activeSelf);
+            }
+        }
+
+        // if "E" is pressed down, use the selected item
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // get item
+            Item itemInSlot = GetSelectedItem(false);
+
+            // Check if there is an item in the slot and if it's a consumable
+            if (itemInSlot != null && itemInSlot.type == ItemType.Consumable) 
+            {
+                // if consumable, call GetSelectedItem(true) to use it
+                Item recievedItem = GetSelectedItem(true);
+                Debug.Log("Used item: " + recievedItem.name);
+            } 
+            else if (itemInSlot != null)
+            {
+                Debug.Log("Selected item is not consumable.");
+            }
+            else
+            {
+                Debug.Log("No item to use.");
+            }
+        }
+
         // Check for number key input to change selected slot
         if (Input.inputString != null)
         {
@@ -49,7 +87,6 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            // Use item.maxStack instead of maxStackedItems
             if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < item.maxStack && item.stackable == true)
             {
                 itemInSlot.count++;
@@ -57,7 +94,6 @@ public class InventoryManager : MonoBehaviour
                 return true;
             }
         }
-
 
         // Find any empty slot
         for (int i = 0; i < inventorySlots.Length; i++)
@@ -108,4 +144,5 @@ public class InventoryManager : MonoBehaviour
 
         return null;
     }
+    
 }
