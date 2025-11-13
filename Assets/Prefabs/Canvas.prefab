@@ -1427,8 +1427,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2920402945584312015, guid: b928c98ff469dd241b1ad10621c7f5de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1474,8 +1474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 4412402524677012165}
-  selectedColor: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
-  notSelectedColor: {r: 0, g: 1, b: 0.88305783, a: 1}
+  selectedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3012848279263692833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,8 +1908,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2920402945584312015, guid: b928c98ff469dd241b1ad10621c7f5de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1955,8 +1955,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8534876290323858989}
-  selectedColor: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
-  notSelectedColor: {r: 0, g: 1, b: 0.88305783, a: 1}
+  selectedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3680128441639546583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,8 +2604,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2920402945584312015, guid: b928c98ff469dd241b1ad10621c7f5de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2651,8 +2651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 7013175598639986864}
-  selectedColor: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
-  notSelectedColor: {r: 0, g: 1, b: 0.88305783, a: 1}
+  selectedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4999085445526777629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,8 +3582,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2920402945584312015, guid: b928c98ff469dd241b1ad10621c7f5de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3629,8 +3629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 650005224059299062}
-  selectedColor: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
-  notSelectedColor: {r: 0, g: 1, b: 0.88305783, a: 1}
+  selectedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &7085884733862935478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,7 +3906,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 734.40686, y: 55.825905}
-  m_SizeDelta: {x: 460, y: 65}
+  m_SizeDelta: {x: 660, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &36991472276621968
 CanvasRenderer:
@@ -3966,7 +3966,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 55, y: 55}
+  m_CellSize: {x: 85, y: 85}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -4037,8 +4037,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2920402945584312015, guid: b928c98ff469dd241b1ad10621c7f5de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4084,8 +4084,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8713006386474319248}
-  selectedColor: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
-  notSelectedColor: {r: 0, g: 1, b: 0.88305783, a: 1}
+  selectedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &7301356604889104271
 GameObject:
   m_ObjectHideFlags: 0
@@ -4791,8 +4791,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2920402945584312015, guid: b928c98ff469dd241b1ad10621c7f5de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4838,8 +4838,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2829351868206284739}
-  selectedColor: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
-  notSelectedColor: {r: 0, g: 1, b: 0.88305783, a: 1}
+  selectedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8678293503993415347
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,8 +5040,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2920402945584312015, guid: b928c98ff469dd241b1ad10621c7f5de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5087,8 +5087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1564985058190005372}
-  selectedColor: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
-  notSelectedColor: {r: 0, g: 1, b: 0.88305783, a: 1}
+  selectedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8913898514335704268
 GameObject:
   m_ObjectHideFlags: 0
