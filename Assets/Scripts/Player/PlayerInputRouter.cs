@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerInputRouter : MonoBehaviour
 {
     public Vector2 MoveValue { get; private set; }
+    public Vector2 MouseValue { get; private set; }
+    public bool AttackPressed { get; private set; }
 
     PlayerInputActions actions;
 
@@ -18,17 +20,40 @@ public class PlayerInputRouter : MonoBehaviour
         actions.Player.Enable();
         actions.Player.Move.performed += OnMove;
         actions.Player.Move.canceled += OnMove;
+
+        actions.Player.Look.performed += OnLook;
+        actions.Player.Look.canceled += OnLook;
+
+        actions.Player.Attack.performed += OnAttack;
+        actions.Player.Attack.canceled += OnAttack;
     }
 
     void OnDisable()
     {
         actions.Player.Move.performed -= OnMove;
         actions.Player.Move.canceled -= OnMove;
+
+        actions.Player.Look.performed -= OnLook;
+        actions.Player.Look.canceled -= OnLook;
+
+        actions.Player.Attack.performed -= OnAttack;
+        actions.Player.Attack.canceled -= OnAttack;
+
         actions.Player.Disable();
     }
 
     void OnMove(InputAction.CallbackContext ctx)
     {
         MoveValue = ctx.ReadValue<Vector2>();
+    }
+
+    void OnLook(InputAction.CallbackContext ctx)
+    {
+        MouseValue = ctx.ReadValue<Vector2>();
+    }
+
+    void OnAttack(InputAction.CallbackContext ctx)
+    {
+        AttackPressed = ctx.ReadValueAsButton();
     }
 }
