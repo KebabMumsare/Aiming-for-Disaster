@@ -16,6 +16,7 @@ public class Item : ScriptableObject
 
     [Header("Only UI")]
     public bool stackable = true;
+    public int maxStack = 0;
 
     [Header("Both")]
      public Sprite image;
@@ -30,7 +31,8 @@ public enum ItemType
 
 public enum ActionType
 {
-    Shoot,
+    Throw,
+    BoomerangThrow,
     Melee,
     Use
 }
