@@ -7,12 +7,7 @@ public class HealthbarManager : MonoBehaviour
     public Image healthBar;
     public Health health; 
     public TextMeshProUGUI healthText;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         healthBar.fillAmount = health.currentHealth / 100;
