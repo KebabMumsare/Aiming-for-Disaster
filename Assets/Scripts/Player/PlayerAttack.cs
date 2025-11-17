@@ -20,6 +20,21 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        if (weapon == null)
+        {
+            weapon = weaponPivot.GetComponentInChildren<Weapon>();
+            if (weapon == null)
+            {
+                return;
+            }
+            else 
+            {
+                Debug.Log("Weapon found in weaponPivot");
+                weaponHoldingPoint = weapon.transform;
+            }
+        }
+
+
         if (inputRouter == null)
             return;
 
