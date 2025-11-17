@@ -5,6 +5,14 @@ public class PickupItem : MonoBehaviour
     public Item itemToPickup;
     public InventoryManager inventoryManager;
 
+    void Awake()
+    {
+        if (inventoryManager == null)
+            {
+                inventoryManager = GameObject.FindGameObjectWithTag("InvManager").GetComponent<InventoryManager>();
+            }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log($"Collision detected with: {collision.gameObject.name}, Tag: {collision.tag}, Root: {collision.transform.root.name}");

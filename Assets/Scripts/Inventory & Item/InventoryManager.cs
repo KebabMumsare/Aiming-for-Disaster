@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject inventoryItemPrefab;
 
     private int NumberOfToolbarSlots = 7;
+    private int NumberOfWeaponSlots = 2;
     private PlayerInputRouter playerInput; // Reference to the input router
 
     int selectedSlot = -1;
@@ -45,9 +46,13 @@ public class InventoryManager : MonoBehaviour
                 Item recievedItem = GetSelectedItem(true);
                 Debug.Log("Used item: " + recievedItem.name);
             } 
+            else if (itemInSlot != null && itemInSlot.type == ItemType.Weapon)
+            {
+                EquipWeapon(itemInSlot); 
+            }
             else if (itemInSlot != null)
             {
-                Debug.Log("Selected item is not consumable.");
+                Debug.Log("Selected item is not consumable or weapon.");
             }
             else
             {
@@ -72,11 +77,104 @@ public class InventoryManager : MonoBehaviour
         if (selectedSlot >= 0)
         {
             inventorySlots[selectedSlot].Deselect();
+            
+            // If previous slot was a weapon slot, unequip the weapon
+            if (inventorySlots[selectedSlot] is InventoryWeaponSlot previousWeaponSlot)
+            {
+                if (previousWeaponSlot.WeaponPivot != null && previousWeaponSlot.WeaponPivot.transform.childCount > 0)
+                {
+                    previousWeaponSlot.UnequipWeapon();
+                }
+            }
         }
 
         inventorySlots[newValue].Select();
         selectedSlot = newValue;
+
+        // If new slot is a weapon slot with a weapon item, equip it
+        Debug.Log($"Changing to slot {newValue}, slot type: {inventorySlots[newValue].GetType()}");
+        if (inventorySlots[newValue] is InventoryWeaponSlot weaponSlot)
+        {
+            Debug.Log("Slot is InventoryWeaponSlot");
+            InventoryItem itemInSlot = weaponSlot.GetComponentInChildren<InventoryItem>();
+            Debug.Log($"Item in slot: {(itemInSlot != null ? itemInSlot.name : "null")}");
+            if (itemInSlot != null && itemInSlot.item != null)
+            {
+                Debug.Log($"Item type: {itemInSlot.item.type}, Weapon prefab: {(itemInSlot.item.weaponPrefab != null ? itemInSlot.item.weaponPrefab.name : "null")}");
+                if (itemInSlot.item.type == ItemType.Weapon)
+                {
+                    if (itemInSlot.item.weaponPrefab != null)
+                    {
+                        Debug.Log("Calling EquipWeapon on weaponSlot");
+                        weaponSlot.EquipWeapon(itemInSlot.item.weaponPrefab);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Weapon item has no weaponPrefab assigned");
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("No item in weapon slot");
+            }
+        }
+        else
+        {
+            Debug.Log("Slot is NOT InventoryWeaponSlot");
+        }
     }
+
+    void EquipWeapon(Item weaponItem)
+{
+    if (weaponItem.weaponPrefab == null)
+    {
+        Debug.LogWarning($"Item {weaponItem.name} has no weapon prefab.");
+        return;
+    }
+
+    // Find an available weapon slot (first 2 slots)
+    InventoryWeaponSlot availableSlot = null;
+    for (int i = 0; i < NumberOfWeaponSlots && i < inventorySlots.Length; i++)
+    {
+        if (inventorySlots[i] is InventoryWeaponSlot weaponSlot)
+        {
+            // Check if slot is empty or has the same weapon
+            InventoryItem itemInSlot = inventorySlots[i].GetComponentInChildren<InventoryItem>();
+            if (itemInSlot == null)
+            {
+                availableSlot = weaponSlot;
+                break;
+            }
+            else if (itemInSlot.item == weaponItem)
+            {
+                // Same weapon, just equip it
+                availableSlot = weaponSlot;
+                break;
+            }
+        }
+    }
+
+    // If no empty slot, use the first weapon slot (replace current weapon)
+    if (availableSlot == null && inventorySlots.Length > 0 && inventorySlots[0] is InventoryWeaponSlot firstWeaponSlot)
+    {
+        availableSlot = firstWeaponSlot;
+        // Unequip current weapon if there is one
+        if (firstWeaponSlot.WeaponPivot != null && firstWeaponSlot.WeaponPivot.transform.childCount > 0)
+        {
+            firstWeaponSlot.UnequipWeapon();
+        }
+    }
+
+    if (availableSlot != null && availableSlot.WeaponPivot != null)
+    {
+        availableSlot.EquipWeapon(weaponItem.weaponPrefab);
+    }
+    else
+    {
+        Debug.LogWarning("No weapon slot available or WeaponPivot not assigned.");
+    }
+}
 
     // Adds an item to the inventory - used in PickupItem.cs
     public bool AddItem(Item item)
