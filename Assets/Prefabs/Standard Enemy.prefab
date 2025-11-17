@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 6379713445188815313}
   - component: {fileID: 4856448905824229193}
   - component: {fileID: 1097684955920142161}
-  - component: {fileID: 4573148353923799050}
   - component: {fileID: 1528300029444262583}
   - component: {fileID: 792593557337917689}
   - component: {fileID: 2668871060561850674}
   - component: {fileID: -1448209541077027171}
+  - component: {fileID: 4729173525251329939}
   m_Layer: 0
   m_Name: Standard Enemy
   m_TagString: Enemy
@@ -197,20 +197,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   delay: 0
---- !u!114 &4573148353923799050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206361993311863211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b39c4b373b46e7e45accc80ebd11e015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTarget: {fileID: 0}
-  detectionRange: 10
 --- !u!50 &1528300029444262583
 Rigidbody2D:
   serializedVersion: 5
@@ -311,3 +297,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &4729173525251329939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9206361993311863211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6471381563bd3b3468c395b5fa37f288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTarget: {fileID: 0}
+  detectionRange: 10
