@@ -16,6 +16,6 @@ public class HealthbarManager : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = health.currentHealth / 100;
-        healthText.text = health.currentHealth.ToString("0") + " / " + health.maxHealth.ToString("0");
+        healthText.text = health.currentHealth.ToString("0") + "/" + health.maxHealth.ToString("0");
     }
 }
