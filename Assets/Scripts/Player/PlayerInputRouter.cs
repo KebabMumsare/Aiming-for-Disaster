@@ -7,6 +7,8 @@ public class PlayerInputRouter : MonoBehaviour
     public Vector2 MoveValue { get; private set; }
     public Vector2 MouseValue { get; private set; }
     public bool AttackPressed { get; private set; }
+    public bool UseItemPressed { get; private set; }
+    public bool OpenInventoryPressed { get; private set; }
 
     PlayerInputActions actions;
 
@@ -26,6 +28,9 @@ public class PlayerInputRouter : MonoBehaviour
 
         actions.Player.Attack.performed += OnAttack;
         actions.Player.Attack.canceled += OnAttack;
+
+        actions.Player.UseItem.performed += OnUseItem;
+        actions.Player.OpenInventory.performed += OnOpenInventory;
     }
 
     void OnDisable()
@@ -39,7 +44,17 @@ public class PlayerInputRouter : MonoBehaviour
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Attack.canceled -= OnAttack;
 
+        actions.Player.UseItem.performed -= OnUseItem;
+        actions.Player.OpenInventory.performed -= OnOpenInventory;
+
         actions.Player.Disable();
+    }
+
+    // Add a LateUpdate to reset the press flags each frame
+    void LateUpdate()
+    {
+        UseItemPressed = false;
+        OpenInventoryPressed = false;
     }
 
     void OnMove(InputAction.CallbackContext ctx)
@@ -55,5 +70,15 @@ public class PlayerInputRouter : MonoBehaviour
     void OnAttack(InputAction.CallbackContext ctx)
     {
         AttackPressed = ctx.ReadValueAsButton();
+    }
+
+    void OnUseItem(InputAction.CallbackContext ctx)
+    {
+        UseItemPressed = true;
+    }
+
+    void OnOpenInventory(InputAction.CallbackContext ctx)
+    {
+        OpenInventoryPressed = true;
     }
 }

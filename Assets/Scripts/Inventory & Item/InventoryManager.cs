@@ -9,11 +9,14 @@ public class InventoryManager : MonoBehaviour
     public GameObject inventoryItemPrefab;
 
     private int NumberOfToolbarSlots = 7;
+    private PlayerInputRouter playerInput; // Reference to the input router
 
     int selectedSlot = -1;
 
     private void Start()
     {
+        // Find the PlayerInputRouter in the scene
+        playerInput = FindFirstObjectByType<PlayerInputRouter>();
         ChangeSelectedSlot(0);
         if (mainInventoryPanel != null)
         {
@@ -24,25 +27,21 @@ public class InventoryManager : MonoBehaviour
     private void Update()
     {
         // if "I" is pressed down, toggle inventory panel
-        if (Input.GetKeyDown(KeyCode.I))
+        if (playerInput.OpenInventoryPressed) // Use the new input property
         {
             if (mainInventoryPanel != null)
             {
-                // This will toggle the panel's active state on/off
                 mainInventoryPanel.SetActive(!mainInventoryPanel.activeSelf);
             }
         }
 
         // if "E" is pressed down, use the selected item
-        if (Input.GetKeyDown(KeyCode.E))
+        if (playerInput.UseItemPressed) // Use the new input property
         {
-            // get item
             Item itemInSlot = GetSelectedItem(false);
 
-            // Check if there is an item in the slot and if it's a consumable
             if (itemInSlot != null && itemInSlot.type == ItemType.Consumable) 
             {
-                // if consumable, call GetSelectedItem(true) to use it
                 Item recievedItem = GetSelectedItem(true);
                 Debug.Log("Used item: " + recievedItem.name);
             } 
