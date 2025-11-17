@@ -19,7 +19,10 @@ public class Item : ScriptableObject
     public int maxStack = 0;
 
     [Header("Both")]
-     public Sprite image;
+    public Sprite image;
+
+    [Header("If heal item")]
+    public float healAmount = 0f;
 }
 
 public enum ItemType

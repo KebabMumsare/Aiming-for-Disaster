@@ -8,6 +8,9 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Assign Player to this one")]
     public Health health; // assign Player to this one
+
+
+    public Item item;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
@@ -47,7 +50,7 @@ public class InventoryManager : MonoBehaviour
             {
                 Item recievedItem = GetSelectedItem(true);
                 Debug.Log("Used item: " + recievedItem.name);
-                health.Heal(10);
+                health.Heal(itemInSlot.healAmount);
             }
             else if (itemInSlot != null)
             {
