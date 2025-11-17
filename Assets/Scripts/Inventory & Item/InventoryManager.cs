@@ -5,6 +5,12 @@ public class InventoryManager : MonoBehaviour
 {
     [Header("Assign 'MainInventoryGroup'")]
     public GameObject mainInventoryPanel; // assign MainInventoryGroup to this one
+
+    [Header("Assign Player to this one")]
+    public Health health; // assign Player to this one
+
+
+    public Item item;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
@@ -41,14 +47,11 @@ public class InventoryManager : MonoBehaviour
         {
             Item itemInSlot = GetSelectedItem(false);
 
-            if (itemInSlot != null && itemInSlot.type == ItemType.Consumable) 
+            if (itemInSlot != null && itemInSlot.type == ItemType.Consumable)
             {
                 Item recievedItem = GetSelectedItem(true);
                 Debug.Log("Used item: " + recievedItem.name);
-            } 
-            else if (itemInSlot != null && itemInSlot.type == ItemType.Weapon)
-            {
-                EquipWeapon(itemInSlot); 
+                health.Heal(itemInSlot.healAmount);
             }
             else if (itemInSlot != null)
             {
