@@ -24,6 +24,18 @@ public class Item : ScriptableObject
 
     [Header("If heal item")]
     public float healAmount = 0f;
+
+    [Header("Details")]
+    [TextArea]
+    public string description;
+    public List<ItemStat> extraStats = new List<ItemStat>();
+}
+
+[System.Serializable]
+public class ItemStat
+{
+    public string label;
+    public string value;
 }
 
 public enum ItemType

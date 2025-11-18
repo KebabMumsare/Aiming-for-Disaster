@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     public Item item;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
+    [SerializeField] private InventoryItemDetailsUI itemDetailsUI;
 
     private int NumberOfToolbarSlots = 7;
     private int NumberOfWeaponSlots = 2;
@@ -24,7 +25,12 @@ public class InventoryManager : MonoBehaviour
     {
         // Find the PlayerInputRouter in the scene
         playerInput = FindFirstObjectByType<PlayerInputRouter>();
+        InitialiseSlots();
         ChangeSelectedSlot(0);
+        if (itemDetailsUI != null)
+        {
+            itemDetailsUI.Hide();
+        }
         if (mainInventoryPanel != null)
         {
             mainInventoryPanel.SetActive(false); // Start with the inventory hidden
@@ -52,6 +58,7 @@ public class InventoryManager : MonoBehaviour
                 Item recievedItem = GetSelectedItem(true);
                 Debug.Log("Used item: " + recievedItem.name);
                 health.Heal(itemInSlot.healAmount);
+                UpdateSelectedItemDetails(selectedSlot);
             }
             else if (itemInSlot != null)
             {
@@ -75,8 +82,13 @@ public class InventoryManager : MonoBehaviour
     }
 
     // Changes the selected inventory slot
-    void ChangeSelectedSlot(int newValue)
+    public void ChangeSelectedSlot(int newValue)
     {
+        if (newValue < 0 || newValue >= inventorySlots.Length)
+        {
+            return;
+        }
+
         if (selectedSlot >= 0)
         {
             inventorySlots[selectedSlot].Deselect();
@@ -93,6 +105,7 @@ public class InventoryManager : MonoBehaviour
 
         inventorySlots[newValue].Select();
         selectedSlot = newValue;
+        UpdateSelectedItemDetails(newValue);
 
         // If new slot is a weapon slot with a weapon item, equip it
         Debug.Log($"Changing to slot {newValue}, slot type: {inventorySlots[newValue].GetType()}");
@@ -125,6 +138,40 @@ public class InventoryManager : MonoBehaviour
         else
         {
             Debug.Log("Slot is NOT InventoryWeaponSlot");
+        }
+    }
+
+    void InitialiseSlots()
+    {
+        if (inventorySlots == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i] != null)
+            {
+                inventorySlots[i].Initialise(this, i);
+            }
+        }
+    }
+
+    void UpdateSelectedItemDetails(int slotIndex)
+    {
+        if (itemDetailsUI == null || slotIndex < 0 || slotIndex >= inventorySlots.Length)
+        {
+            return;
+        }
+
+        InventoryItem itemInSlot = inventorySlots[slotIndex].GetComponentInChildren<InventoryItem>();
+        if (itemInSlot != null && itemInSlot.item != null)
+        {
+            itemDetailsUI.Show(itemInSlot.item, itemInSlot.count);
+        }
+        else
+        {
+            itemDetailsUI.Hide();
         }
     }
 
@@ -191,6 +238,7 @@ public class InventoryManager : MonoBehaviour
             {
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
+                UpdateSelectedItemDetails(selectedSlot);
                 return true;
             }
         }
@@ -216,6 +264,7 @@ public class InventoryManager : MonoBehaviour
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
+        UpdateSelectedItemDetails(selectedSlot);
     }
 
     // use item logic
