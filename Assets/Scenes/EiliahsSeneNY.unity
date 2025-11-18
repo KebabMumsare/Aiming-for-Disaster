@@ -2008,6 +2008,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -255
       objectReference: {fileID: 0}
+    - target: {fileID: 8767062498043016227, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767062498043016227, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 89bf22389eb91c5489e92c947f69d786, type: 2}
+    - target: {fileID: 8767062498043016227, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767062498043016227, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 826448212528930712, guid: 89bf22389eb91c5489e92c947f69d786, type: 2}
+    - target: {fileID: 8767062498043016227, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8897290712970502077, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
