@@ -22,6 +22,10 @@ public class Health : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0f)
         {
+            if (CompareTag("Enemy"))
+            {
+                Destroy(gameObject);
+            }
             Die();
         }
     }
