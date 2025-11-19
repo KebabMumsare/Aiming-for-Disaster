@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class Health : MonoBehaviour
             if (CompareTag("Enemy"))
             {
                 Destroy(gameObject);
+            }
+            if (CompareTag("Player"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             Die();
         }
