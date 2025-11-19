@@ -42,12 +42,6 @@ public class InventoryItemDetailsUI : MonoBehaviour
             actionText.text = item != null ? $"Action: {item.actionType}" : string.Empty;
         }
 
-        if (descriptionText != null)
-        {
-            descriptionText.text = item != null && !string.IsNullOrWhiteSpace(item.description)
-                ? item.description
-                : "No description set.";
-        }
 
         if (statsText != null)
         {
@@ -70,19 +64,6 @@ public class InventoryItemDetailsUI : MonoBehaviour
         if (item.type == ItemType.Consumable && item.healAmount > 0f)
         {
             builder.AppendLine($"Heal Amount: {item.healAmount}");
-        }
-
-        if (item.extraStats != null && item.extraStats.Count > 0)
-        {
-            foreach (var stat in item.extraStats)
-            {
-                if (stat == null || string.IsNullOrWhiteSpace(stat.label))
-                {
-                    continue;
-                }
-
-                builder.AppendLine($"{stat.label}: {stat.value}");
-            }
         }
 
         if (builder.Length == 0)

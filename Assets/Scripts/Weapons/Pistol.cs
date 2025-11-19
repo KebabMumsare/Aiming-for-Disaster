@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Pistol : Weapon
 {
-    [SerializeField] float throwSpeed = 10f;
-    [SerializeField] float returnSpeed = 12f;
-    [SerializeField] float maxThrowDistance = 6f;
-    [SerializeField] float spinSpeed = 720f;
+    [SerializeField] public float throwSpeed = 10f;
+    [SerializeField] public float returnSpeed = 12f;
+    [SerializeField] public float maxThrowDistance = 6f;
+    [SerializeField] public float spinSpeed = 720f;
 
     bool isAttackWindowOpen;
     Transform homeParent;

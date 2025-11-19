@@ -58,9 +58,11 @@ MonoBehaviour:
   weaponVisual: {fileID: 5122067641703288671}
   weaponCollider: {fileID: 8869971685939063622}
   attackFlashDuration: 0.1
+  weaponData: {fileID: 11400000, guid: 54b9b4340d7aa5c409f3a31a5905e6e3, type: 2}
   throwSpeed: 10
   returnSpeed: 12
   maxThrowDistance: 4
+  spinSpeed: 720
 --- !u!50 &-4170680353599969472
 Rigidbody2D:
   serializedVersion: 5

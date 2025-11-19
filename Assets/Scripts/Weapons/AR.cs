@@ -8,7 +8,7 @@ public class AR : Weapon
     public override void Awake()
     {
         weaponName = "AR";
-        damage = item.damage;
+        damage = GetComponent<Damage>();
         attackSpeed = 0.1f;
         attackCooldown = 0f;
         attackCollider = GetComponent<BoxCollider2D>();

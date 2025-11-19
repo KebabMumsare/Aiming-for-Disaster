@@ -21,22 +21,9 @@ public class Item : ScriptableObject
 
     [Header("Both")]
     public Sprite image;
-
-    [Header("If Weapon")]
-    public float damage = 0f;
-
-    [Header("If Ranged weapon")]
-
-    [Header("If Melee weapon")]
-    public float attackSpeed = 0f;
     
     [Header("If heal item")]
     public float healAmount = 0f;
-
-    [Header("Details")]
-    [TextArea]
-    public string description;
-    public List<ItemStat> extraStats = new List<ItemStat>();
 }
 
 [System.Serializable]
