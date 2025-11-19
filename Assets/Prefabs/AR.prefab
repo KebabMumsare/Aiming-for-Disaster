@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: 
-  damage: {fileID: 0}
+  damage: {fileID: -5641813181895204418}
   attackSpeed: 0
   attackCooldown: 0
   attackCollider: {fileID: 8406454210763164888}

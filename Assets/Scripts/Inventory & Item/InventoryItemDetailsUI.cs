@@ -72,11 +72,6 @@ public class InventoryItemDetailsUI : MonoBehaviour
             builder.AppendLine($"Heal Amount: {item.healAmount}");
         }
 
-        if (item.range.x > 0 || item.range.y > 0)
-        {
-            builder.AppendLine($"Range: {item.range.x} x {item.range.y}");
-        }
-
         if (item.extraStats != null && item.extraStats.Count > 0)
         {
             foreach (var stat in item.extraStats)

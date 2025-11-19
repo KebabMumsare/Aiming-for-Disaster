@@ -4,10 +4,11 @@ using System.Collections;
 public class AR : Weapon
 {
     bool isAttackWindowOpen;
+    [SerializeField] Item item;
     public override void Awake()
     {
         weaponName = "AR";
-        damage = GetComponent<Damage>();
+        damage = item.damage;
         attackSpeed = 0.1f;
         attackCooldown = 0f;
         attackCollider = GetComponent<BoxCollider2D>();
