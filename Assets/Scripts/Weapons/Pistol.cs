@@ -6,11 +6,14 @@ public class Pistol : Weapon
     [SerializeField] float throwSpeed = 10f;
     [SerializeField] float returnSpeed = 12f;
     [SerializeField] float maxThrowDistance = 6f;
+    [SerializeField] float spinSpeed = 720f;
 
     bool isAttackWindowOpen;
     Transform homeParent;
     Vector3 homeLocalPosition;
     Quaternion homeLocalRotation;
+    Quaternion visualDefaultRotation;
+    float visualSpinAngle;
 
     public override void Awake()
     {
@@ -26,6 +29,10 @@ public class Pistol : Weapon
         homeParent = transform.parent;
         homeLocalPosition = transform.localPosition;
         homeLocalRotation = transform.localRotation;
+        if (weaponVisual != null)
+        {
+            visualDefaultRotation = weaponVisual.transform.localRotation;
+        }
     }
 
     public override void Update()
@@ -55,6 +62,7 @@ public class Pistol : Weapon
         isAttackWindowOpen = true;
         weaponCollider.enabled = true;
         weaponVisual.enabled = true;
+        visualSpinAngle = 0f;
 
         Vector3 throwDirection = homeParent != null ? homeParent.up : transform.up;
         transform.SetParent(null, true);
@@ -66,6 +74,7 @@ public class Pistol : Weapon
             transform.position += throwDirection * step;
             travelled += step;
             transform.up = throwDirection;
+            ApplySpin();
             yield return null;
         }
 
@@ -87,6 +96,7 @@ public class Pistol : Weapon
             Vector3 move = toHome.normalized * distanceThisFrame;
             transform.position += move;
             transform.up = move.normalized;
+            ApplySpin();
             yield return null;
         }
 
@@ -98,6 +108,7 @@ public class Pistol : Weapon
 
         weaponCollider.enabled = false;
         weaponVisual.enabled = false;
+        ResetVisualRotation();
         isAttackWindowOpen = false;
         attackRoutine = null;
     }
@@ -110,5 +121,27 @@ public class Pistol : Weapon
             Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage");
             other.gameObject.GetComponent<Health>().TakeDamage(damage.GetDamage());
         }
+    }
+
+    void ApplySpin()
+    {
+        if (weaponVisual == null)
+        {
+            return;
+        }
+
+        visualSpinAngle += spinSpeed * Time.deltaTime;
+        weaponVisual.transform.localRotation = visualDefaultRotation * Quaternion.Euler(0f, 0f, visualSpinAngle);
+    }
+
+    void ResetVisualRotation()
+    {
+        if (weaponVisual == null)
+        {
+            return;
+        }
+
+        visualSpinAngle = 0f;
+        weaponVisual.transform.localRotation = visualDefaultRotation;
     }
 }
