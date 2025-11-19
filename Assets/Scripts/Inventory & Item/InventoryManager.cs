@@ -56,7 +56,7 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot != null && itemInSlot.type == ItemType.Consumable)
             {
                 Item recievedItem = GetSelectedItem(true);
-                UseHealItem();
+                health.Heal(itemInSlot.healAmount);
                 UpdateSelectedItemDetails(selectedSlot);
             }
             else if (itemInSlot != null)
@@ -81,14 +81,7 @@ public class InventoryManager : MonoBehaviour
 
         
     }
-
-    void UseHealItem() 
-        {
-            Item itemInSlot = GetSelectedItem(false);
-            health.Heal(itemInSlot.healAmount);
-            
-        }
-
+    
     // Changes the selected inventory slot
     public void ChangeSelectedSlot(int newValue)
     {
