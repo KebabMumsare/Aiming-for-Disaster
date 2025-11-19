@@ -21,3 +21,5 @@ MonoBehaviour:
   maxStack: 4
   image: {fileID: 308145959380911688, guid: db7b12dee149b8249af366f06b2508b6, type: 3}
   healAmount: 10
+  description: Molotov? Hmm, maybe I can drink this?!
+  extraStats: []

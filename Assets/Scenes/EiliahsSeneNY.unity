@@ -1504,6 +1504,14 @@ PrefabInstance:
       propertyPath: WeaponPivot
       value: 
       objectReference: {fileID: 1165413939}
+    - target: {fileID: 83415578266227103, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: selectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 83415578266227103, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: notSelectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1390674807562293283, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: m_Name
       value: InventoryPrefab
@@ -1512,6 +1520,14 @@ PrefabInstance:
       propertyPath: WeaponPivot
       value: 
       objectReference: {fileID: 1165413939}
+    - target: {fileID: 1731499219355688934, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: selectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731499219355688934, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: notSelectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1759934093615976125, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
