@@ -10,7 +10,22 @@ public class HealthbarManager : MonoBehaviour
     
     void Update()
     {
-        healthBar.fillAmount = health.currentHealth / 100;
-        healthText.text = health.currentHealth.ToString("0") + "/" + health.maxHealth.ToString("0");
+        if (health == null || healthBar == null)
+        {
+            return;
+        }
+
+        float normalizedHealth = 0f;
+        if (health.maxHealth > 0f)
+        {
+            normalizedHealth = Mathf.Clamp01(health.currentHealth / health.maxHealth);
+        }
+
+        healthBar.fillAmount = normalizedHealth;
+
+        if (healthText != null)
+        {
+            healthText.text = health.currentHealth.ToString("0") + "/" + health.maxHealth.ToString("0");
+        }
     }
 }
