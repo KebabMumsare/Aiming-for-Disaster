@@ -100,17 +100,51 @@ public class Pistol : Weapon
             yield return null;
         }
 
-        if (homeParent != null)
-            transform.SetParent(homeParent);
+        bool reattached = TryReattachToHome();
 
-        transform.localPosition = homeLocalPosition;
-        transform.localRotation = homeLocalRotation;
+        if (!reattached)
+        {
+            CleanupAndDestroy();
+            yield break;
+        }
 
         weaponCollider.enabled = false;
         weaponVisual.enabled = false;
         ResetVisualRotation();
         isAttackWindowOpen = false;
         attackRoutine = null;
+    }
+
+    bool TryReattachToHome()
+    {
+        if (homeParent == null)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < homeParent.childCount; i++)
+        {
+            Transform child = homeParent.GetChild(i);
+            if (child != transform)
+            {
+                return false;
+            }
+        }
+
+        transform.SetParent(homeParent);
+        transform.localPosition = homeLocalPosition;
+        transform.localRotation = homeLocalRotation;
+        return true;
+    }
+
+    void CleanupAndDestroy()
+    {
+        weaponCollider.enabled = false;
+        weaponVisual.enabled = false;
+        ResetVisualRotation();
+        isAttackWindowOpen = false;
+        attackRoutine = null;
+        Destroy(gameObject);
     }
 
     public override void OnTriggerEnter2D(Collider2D other)
