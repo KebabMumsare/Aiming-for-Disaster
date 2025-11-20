@@ -14,6 +14,7 @@ public class Pistol : Weapon
     Quaternion homeLocalRotation;
     Quaternion visualDefaultRotation;
     float visualSpinAngle;
+    bool discardOnReturn;
 
     public override void Awake()
     {
@@ -26,6 +27,7 @@ public class Pistol : Weapon
         weaponVisual.enabled = false;
 
         isAttackWindowOpen = false;
+        discardOnReturn = false;
         homeParent = transform.parent;
         homeLocalPosition = transform.localPosition;
         homeLocalRotation = transform.localRotation;
@@ -117,7 +119,7 @@ public class Pistol : Weapon
 
     bool TryReattachToHome()
     {
-        if (homeParent == null)
+        if (discardOnReturn || !isEquipped || homeParent == null)
         {
             return false;
         }
@@ -135,6 +137,22 @@ public class Pistol : Weapon
         transform.localPosition = homeLocalPosition;
         transform.localRotation = homeLocalRotation;
         return true;
+    }
+
+    public override void OnEquipped(Transform pivot)
+    {
+        base.OnEquipped(pivot);
+        discardOnReturn = false;
+        homeParent = pivot;
+        homeLocalPosition = transform.localPosition;
+        homeLocalRotation = transform.localRotation;
+    }
+
+    public override void OnUnequipped()
+    {
+        base.OnUnequipped();
+        discardOnReturn = true;
+        homeParent = null;
     }
 
     void CleanupAndDestroy()

@@ -13,6 +13,8 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected Collider2D weaponCollider;
     [SerializeField] protected float attackFlashDuration = 0.1f;
     protected Coroutine attackRoutine;
+    protected Transform equippedPivot;
+    protected bool isEquipped;
 
     public void TriggerAttackFlash()
     {
@@ -32,6 +34,18 @@ public abstract class Weapon : MonoBehaviour
         weaponCollider.enabled = false;
         weaponVisual.enabled = false;
         attackRoutine = null;
+    }
+
+    public virtual void OnEquipped(Transform pivot)
+    {
+        equippedPivot = pivot;
+        isEquipped = true;
+    }
+
+    public virtual void OnUnequipped()
+    {
+        isEquipped = false;
+        equippedPivot = null;
     }
 
     public abstract void Awake();
