@@ -5,7 +5,7 @@ public class EnemyBehaviorController : MonoBehaviour
 {
     public GameObject playerTarget;
     public float detectionRange = 10f;
-    
+    public float xpReward = 10f;
     private AIDestinationSetter destinationSetter;
     private Patrol patrol;
     private IAstarAI ai;
