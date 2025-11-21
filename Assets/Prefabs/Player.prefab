@@ -187,8 +187,8 @@ MonoBehaviour:
   currentLevel: 1
   xpToNextLevel: 100
   skillPoints: 1
-  xpText: {fileID: 0}
-  levelText: {fileID: 0}
+  xpText: {fileID: 2456264470461296036}
+  levelText: {fileID: 2406506077098137327}
 --- !u!114 &9001420590348317245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,11 +512,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059933430305355828, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: playerXP
+      value: 
+      objectReference: {fileID: 7078835461182821392}
+    - target: {fileID: 7318750295122687891, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 3914486144474284852}
+    - target: {fileID: 9079243586290240119, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 3914486144474284852}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+--- !u!114 &2406506077098137327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2990988683974304251, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+  m_PrefabInstance: {fileID: 641623148143359764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2456264470461296036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3094508815069125296, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+  m_PrefabInstance: {fileID: 641623148143359764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3852136671338551542 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4436618745638776802, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}

@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 0}
-  detectionRange: 10
+  detectionRange: 5
   xpReward: 120
 --- !u!114 &267635044131732112
 MonoBehaviour:
