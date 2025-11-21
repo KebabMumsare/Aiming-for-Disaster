@@ -11,10 +11,12 @@ public class Pistol : Weapon
     bool isAttackWindowOpen;
     Transform homeParent;
     Vector3 homeLocalPosition;
+    Vector3 homeWorldPosition;
     Quaternion homeLocalRotation;
     Quaternion visualDefaultRotation;
     float visualSpinAngle;
     bool discardOnReturn;
+    Transform playerTransform;
 
     public override void Awake()
     {
@@ -31,6 +33,8 @@ public class Pistol : Weapon
         homeParent = transform.parent;
         homeLocalPosition = transform.localPosition;
         homeLocalRotation = transform.localRotation;
+        playerTransform = FindPlayerTransform();
+        UpdateHomeWorldPosition();
         if (weaponVisual != null)
         {
             visualDefaultRotation = weaponVisual.transform.localRotation;
@@ -67,6 +71,7 @@ public class Pistol : Weapon
         visualSpinAngle = 0f;
 
         Vector3 throwDirection = homeParent != null ? homeParent.up : transform.up;
+        UpdateHomeWorldPosition();
         transform.SetParent(null, true);
 
         float travelled = 0f;
@@ -82,9 +87,7 @@ public class Pistol : Weapon
 
         while (true)
         {
-            Vector3 targetPosition = homeParent != null
-                ? homeParent.TransformPoint(homeLocalPosition)
-                : homeLocalPosition;
+            Vector3 targetPosition = GetCurrentReturnPosition();
 
             Vector3 toHome = targetPosition - transform.position;
             float distanceThisFrame = returnSpeed * Time.deltaTime;
@@ -146,12 +149,15 @@ public class Pistol : Weapon
         homeParent = pivot;
         homeLocalPosition = transform.localPosition;
         homeLocalRotation = transform.localRotation;
+        playerTransform = FindPlayerTransform();
+        UpdateHomeWorldPosition();
     }
 
     public override void OnUnequipped()
     {
         base.OnUnequipped();
         discardOnReturn = true;
+        UpdateHomeWorldPosition();
         homeParent = null;
     }
 
@@ -195,5 +201,42 @@ public class Pistol : Weapon
 
         visualSpinAngle = 0f;
         weaponVisual.transform.localRotation = visualDefaultRotation;
+    }
+
+    void UpdateHomeWorldPosition()
+    {
+        if (homeParent != null)
+        {
+            homeWorldPosition = homeParent.TransformPoint(homeLocalPosition);
+        }
+        else if (playerTransform != null)
+        {
+            homeWorldPosition = playerTransform.position;
+        }
+        else
+        {
+            homeWorldPosition = transform.position;
+        }
+    }
+
+    Vector3 GetCurrentReturnPosition()
+    {
+        if (homeParent != null)
+        {
+            return homeParent.TransformPoint(homeLocalPosition);
+        }
+
+        if (playerTransform == null)
+        {
+            playerTransform = FindPlayerTransform();
+        }
+
+        return playerTransform != null ? playerTransform.position : homeWorldPosition;
+    }
+
+    Transform FindPlayerTransform()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        return player != null ? player.transform : null;
     }
 }

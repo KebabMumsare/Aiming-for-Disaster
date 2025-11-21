@@ -94,13 +94,10 @@ public class InventoryManager : MonoBehaviour
         {
             inventorySlots[selectedSlot].Deselect();
             
-            // If previous slot was a weapon slot, unequip the weapon
+            // If previous slot was a weapon slot, ensure the weapon is unequipped
             if (inventorySlots[selectedSlot] is InventoryWeaponSlot previousWeaponSlot)
             {
-                if (previousWeaponSlot.WeaponPivot != null && previousWeaponSlot.WeaponPivot.transform.childCount > 0)
-                {
-                    previousWeaponSlot.UnequipWeapon();
-                }
+                previousWeaponSlot.UnequipWeapon();
             }
         }
 

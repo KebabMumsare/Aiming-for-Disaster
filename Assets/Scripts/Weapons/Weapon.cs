@@ -15,6 +15,7 @@ public abstract class Weapon : MonoBehaviour
     protected Coroutine attackRoutine;
     protected Transform equippedPivot;
     protected bool isEquipped;
+    public bool IsEquipped => isEquipped;
 
     public void TriggerAttackFlash()
     {

@@ -33,6 +33,12 @@ public class PlayerAttack : MonoBehaviour
                 weaponHoldingPoint = weapon.transform;
             }
         }
+        else if (!weapon.IsEquipped)
+        {
+            weapon = null;
+            weaponHoldingPoint = null;
+            return;
+        }
 
 
         if (inputRouter == null)
@@ -40,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
 
         bool attackHeld = inputRouter.AttackPressed;
 
-        if (attackHeld && !previousAttackHeld)
+        if (weapon != null && attackHeld && !previousAttackHeld)
             weapon.Attack();     // call once when the button is first pressed
 
         previousAttackHeld = attackHeld;
@@ -65,7 +71,10 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
         //Debug.Log("Attack");
-        weapon.Attack();
+        if (weapon != null)
+        {
+            weapon.Attack();
+        }
     }
 
     void UpdateWeaponAim()
