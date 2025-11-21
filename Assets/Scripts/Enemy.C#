@@ -1,7 +1,8 @@
-import * as Currency from './Currency.js';
+import * as Currency from './Currency.C#';
 
 // Example: award 10 currency on death
-const REWARD = 10;
+const REWARD_A = 10;
+const REWARD_B = 20;
 
 export function onEnemyDeath(enemy) {
     // enemy argument depends on your engine; just call this when the enemy dies
