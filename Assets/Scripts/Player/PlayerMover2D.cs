@@ -1,18 +1,25 @@
 using UnityEngine;
 
 /// Applies movement using the values read by PlayerInputRouter.
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(BoxCollider2D), typeof(Rigidbody2D))]
 public class PlayerMover2D : MonoBehaviour
 {
     [SerializeField] PlayerInputRouter inputRouter;
     [SerializeField] float moveSpeed = 5f;
+
+    Rigidbody2D rb;
 
     void Reset()
     {
         inputRouter = GetComponent<PlayerInputRouter>();
     }
 
-    void Update()
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void FixedUpdate()
     {
         if (inputRouter == null)
             return;
@@ -22,7 +29,7 @@ public class PlayerMover2D : MonoBehaviour
         if (moveInput.sqrMagnitude > 1f)
             moveInput.Normalize();
 
-        Vector3 displacement = (Vector3)(moveInput * moveSpeed * Time.deltaTime);
-        transform.position += displacement;
+        // Set velocity directly - will come to full stop when moveInput is zero
+        rb.linearVelocity = moveInput * moveSpeed;
     }
 }
