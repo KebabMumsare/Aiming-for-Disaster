@@ -6,13 +6,13 @@ public class EnemyBehaviorController : MonoBehaviour
     public GameObject playerTarget;
     public float detectionRange = 10f;
     public float xpReward = 10f;
-    private AIDestinationSetter destinationSetter;
-    private Patrol patrol;
-    private IAstarAI ai;
-    private bool isChasing = false;
-    private Transform playerTransform;
+    protected AIDestinationSetter destinationSetter;
+    protected Patrol patrol;
+    protected IAstarAI ai;
+    protected bool isChasing = false;
+    protected Transform playerTransform;
 
-    void Start()
+    protected virtual void Start()
     {
         destinationSetter = GetComponent<AIDestinationSetter>();
         patrol = GetComponent<Patrol>();
@@ -55,7 +55,7 @@ public class EnemyBehaviorController : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         // Check if playerTransform is valid before using it
         if (playerTransform == null)
