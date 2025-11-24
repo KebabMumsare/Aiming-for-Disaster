@@ -72,5 +72,10 @@ public class AR : Weapon
             Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage");
             other.gameObject.GetComponent<Health>().TakeDamage(damage.GetDamage());
         }
+        if (other.gameObject.tag == "LootBox")
+        {
+            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage");
+            other.gameObject.GetComponent<Health>().TakeDamage(damage.GetDamage());
+        }
     }
 }

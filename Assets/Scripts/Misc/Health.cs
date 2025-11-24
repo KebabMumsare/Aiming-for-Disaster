@@ -52,7 +52,7 @@ public class Health : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "LootBox")
         {
             Debug.Log("Hit enemy with " + other.gameObject.name);
             TakeDamage(other.gameObject.GetComponent<Damage>().GetDamage());
