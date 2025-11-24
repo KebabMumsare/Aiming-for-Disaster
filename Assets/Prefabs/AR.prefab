@@ -58,7 +58,7 @@ MonoBehaviour:
   weaponVisual: {fileID: 8914985085958870406}
   weaponCollider: {fileID: 8406454210763164888}
   attackFlashDuration: 0.1
-  weaponData: {fileID: 11400000, guid: 6e13195cab544424987448da4edf0ff8, type: 2}
+  item: {fileID: 0}
 --- !u!50 &7529909059912820161
 Rigidbody2D:
   serializedVersion: 5
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7545fb4b4491de43b902825dd04f542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
 --- !u!1 &8300676737442341737
 GameObject:
   m_ObjectHideFlags: 0
