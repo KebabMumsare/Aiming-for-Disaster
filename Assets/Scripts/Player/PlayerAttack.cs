@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] Transform weaponHoldingPoint;
 
     [SerializeField] Transform weaponPivot;
+    
+    InventoryManager inventoryManager;
 
     bool previousAttackHeld;
 
@@ -17,6 +19,11 @@ public class PlayerAttack : MonoBehaviour
         //attackCollider = GetComponent<BoxCollider2D>();
     }
     
+
+    void Start()
+    {
+        inventoryManager = FindFirstObjectByType<InventoryManager>();
+    }
 
     void Update()
     {
@@ -47,7 +54,16 @@ public class PlayerAttack : MonoBehaviour
         bool attackHeld = inputRouter.AttackPressed;
 
         if (weapon != null && attackHeld && !previousAttackHeld)
-            weapon.Attack();     // call once when the button is first pressed
+        {
+            if (inventoryManager != null && inventoryManager.IsInventoryOpen)
+            {
+                // Do not attack if inventory is open
+            }
+            else
+            {
+                weapon.Attack();     // call once when the button is first pressed
+            }
+        }
 
         previousAttackHeld = attackHeld;
 
