@@ -95,15 +95,39 @@ Tilemap:
   m_Enabled: 1
   m_Tiles: {}
   m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
+  m_TileAssetArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileMatrixArray:
+  - m_RefCount: 0
+    m_Data:
+      e00: -4.100365e-25
+      e01: 0
+      e02: 1e-45
+      e03: -0.0000000012223627
+      e10: 4.5e-44
+      e11: 0
+      e12: 0
+      e13: 4.12e-43
+      e20: -4.6750954e+33
+      e21: -0.0000000012223627
+      e22: 7.8630785e+12
+      e23: 0.0000000026038354
+      e30: 4.5907e-41
+      e31: 4.12e-43
+      e32: 4.13e-43
+      e33: 4.13e-43
+  m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: 0.0000000026038265, g: 0.0000000026038265, b: 0.0000000026038265, a: 0.0000000026038265}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
+  m_Origin: {x: -2, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -603,6 +627,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3789282763932775922}
     m_Modifications:
+    - target: {fileID: 972894133521702028, guid: 63a5eddcb0968c7469e0cdbc639d4d4e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 972894133521702028, guid: 63a5eddcb0968c7469e0cdbc639d4d4e, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1078803387650688326, guid: 63a5eddcb0968c7469e0cdbc639d4d4e, type: 3}
       propertyPath: m_Name
       value: Stone_Floor
@@ -657,7 +689,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1946299476156936246, guid: 63a5eddcb0968c7469e0cdbc639d4d4e, type: 3}
   m_PrefabInstance: {fileID: 8290194878689440183}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6303278498499357358
+--- !u!114 &6307471566584140568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
