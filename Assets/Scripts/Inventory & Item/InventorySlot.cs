@@ -30,12 +30,19 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         image.color = notSelectedColor;
     }
-    public void OnDrop(PointerEventData eventData)
+    public virtual void OnDrop(PointerEventData eventData)
     {
         if (transform.childCount == 0)
         {
             GameObject dropped = eventData.pointerDrag;
             InventoryItem draggableItem = dropped.GetComponent<InventoryItem>();
+
+            // Check if this is NOT a weapon slot and the item IS a weapon
+            if (!(this is InventoryWeaponSlot) && draggableItem.item.type == ItemType.Weapon)
+            {
+                return; // Do not allow drop
+            }
+
             draggableItem.parentAfterDrag = transform;
         }
     }

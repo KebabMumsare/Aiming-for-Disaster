@@ -46,5 +46,21 @@ public class InventoryWeaponSlot : InventorySlot
 
         equippedWeapon = null;
     }
+
+    public override void OnDrop(UnityEngine.EventSystems.PointerEventData eventData)
+    {
+        GameObject dropped = eventData.pointerDrag;
+        InventoryItem draggableItem = dropped.GetComponent<InventoryItem>();
+
+        if (draggableItem != null && draggableItem.item != null)
+        {
+            if (draggableItem.item.type != ItemType.Weapon)
+            {
+                return; // Do not allow drop
+            }
+        }
+
+        base.OnDrop(eventData);
+    }
 }
 

@@ -238,6 +238,12 @@ public class InventoryManager : MonoBehaviour
                 continue;
             }
 
+            // Check if slot is NOT a weapon slot and item IS a weapon
+            if (!(slot is InventoryWeaponSlot) && item.type == ItemType.Weapon)
+            {
+                continue;
+            }
+
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < item.maxStack && item.stackable == true)
             {
@@ -255,6 +261,12 @@ public class InventoryManager : MonoBehaviour
 
             // Check if slot is a weapon slot and item is not a weapon
             if (slot is InventoryWeaponSlot && item.type != ItemType.Weapon)
+            {
+                continue;
+            }
+
+            // Check if slot is NOT a weapon slot and item IS a weapon
+            if (!(slot is InventoryWeaponSlot) && item.type == ItemType.Weapon)
             {
                 continue;
             }
