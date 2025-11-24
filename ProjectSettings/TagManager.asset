@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - InvManager
+  - Door
+  - Door_Left_Closed
+  - Door_Left_Open
+  - Door_Right_Closed
+  - Door_Right_Open
   layers:
   - Default
   - TransparentFX

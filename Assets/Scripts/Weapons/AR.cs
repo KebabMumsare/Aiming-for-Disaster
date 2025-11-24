@@ -24,7 +24,6 @@ public class AR : Weapon
             attackCooldown -= Time.deltaTime;
             if (attackCooldown < 0f)
                 attackCooldown = 0f;
-            Debug.Log("Attack cooldown: " + attackCooldown);
         }
     }
 
