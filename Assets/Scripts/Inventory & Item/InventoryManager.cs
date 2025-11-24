@@ -231,6 +231,13 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
+
+            // Check if slot is a weapon slot and item is not a weapon
+            if (slot is InventoryWeaponSlot && item.type != ItemType.Weapon)
+            {
+                continue;
+            }
+
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < item.maxStack && item.stackable == true)
             {
@@ -245,6 +252,13 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
+
+            // Check if slot is a weapon slot and item is not a weapon
+            if (slot is InventoryWeaponSlot && item.type != ItemType.Weapon)
+            {
+                continue;
+            }
+
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot == null)
             {
