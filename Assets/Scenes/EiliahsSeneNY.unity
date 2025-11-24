@@ -1194,7 +1194,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1621946556}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1993735106481973047, guid: 3990e82cf729583468f66b452587db35, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3990e82cf729583468f66b452587db35, type: 3}
@@ -1356,6 +1357,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2062977665495816151, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
+      propertyPath: attackRange
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2062977665495816151, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
       propertyPath: playerTarget
       value: 

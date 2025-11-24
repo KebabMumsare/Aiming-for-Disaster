@@ -169,7 +169,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2074973746105568760, guid: 348748dff0ae1ae43b52aa6bdba64442, type: 3}
   attackRange: 8
   keepDistance: 6
-  fireRate: 1
+  fireRate: 0.5
   projectileSpeed: 10
   firePoint: {fileID: 0}
 --- !u!114 &1854988223070077757
