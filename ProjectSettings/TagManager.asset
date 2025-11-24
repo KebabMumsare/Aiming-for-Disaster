@@ -11,6 +11,7 @@ TagManager:
   - Door_Left_Open
   - Door_Right_Closed
   - Door_Right_Open
+  - Closed_Door
   layers:
   - Default
   - TransparentFX
