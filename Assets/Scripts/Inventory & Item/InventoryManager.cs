@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Assign Player to this one")]
     public Health health; // assign Player to this one
-
+    public SkillManager skillManager; // assign Player to this one
 
     public Item item;
     public InventorySlot[] inventorySlots;
@@ -39,6 +39,20 @@ public class InventoryManager : MonoBehaviour
         if (health == null)
         {
             Debug.LogError("Player health is not assigned. Assign it on the InventoryManager");
+        }
+
+        if (skillManager == null)
+        {
+             // Try to find it on the player (assuming health is on the player)
+             if (health != null)
+             {
+                 skillManager = health.GetComponent<SkillManager>();
+             }
+             
+             if (skillManager == null)
+             {
+                 Debug.LogWarning("SkillManager is not assigned and could not be found on the player. Healing upgrades will not work.");
+             }
         }
 
         if (mainInventoryPanel == null)
@@ -73,7 +87,14 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot != null && itemInSlot.type == ItemType.Consumable)
             {
                 Item recievedItem = GetSelectedItem(true);
-                health.Heal(itemInSlot.healAmount);
+                float healAmount = itemInSlot.healAmount;
+                
+                if (skillManager != null)
+                {
+                    healAmount *= skillManager.GetHealingMultiplier();
+                }
+                
+                health.Heal(healAmount);
                 UpdateSelectedItemDetails(selectedSlot);
             }
             else if (itemInSlot != null)
