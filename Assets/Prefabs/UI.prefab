@@ -7516,6 +7516,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4436618745638776802}
     m_Modifications:
+    - target: {fileID: 1524190511643314356, guid: fad9f7de89d13364d8b2984332d79837, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524190511643314356, guid: fad9f7de89d13364d8b2984332d79837, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524190511643314356, guid: fad9f7de89d13364d8b2984332d79837, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524190511643314356, guid: fad9f7de89d13364d8b2984332d79837, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4290032820
+      objectReference: {fileID: 0}
     - target: {fileID: 5208182271288460043, guid: fad9f7de89d13364d8b2984332d79837, type: 3}
       propertyPath: m_Name
       value: XpBar
