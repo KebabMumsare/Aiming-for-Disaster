@@ -5,6 +5,9 @@ public class LootBox : MonoBehaviour
     public Health health;
     public GameObject openedLootBox;
     public GameObject closedLootBox;
+    public BoxCollider2D boxCollider;
+    public SpriteRenderer closedLootBoxSpriteRenderer;
+    public SpriteRenderer openedLootBoxSpriteRenderer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +20,17 @@ public class LootBox : MonoBehaviour
         else
         {
             Debug.Log("LootBox health found");
+        }
+        
+        if (Random.Range(0, 2) == 0)
+        {
+            closedLootBoxSpriteRenderer.flipX = true;
+            openedLootBoxSpriteRenderer.flipX = true;
+        }
+        else 
+        {
+            closedLootBoxSpriteRenderer.flipX = false;
+            openedLootBoxSpriteRenderer.flipX = false;
         }
     }
 
@@ -34,5 +48,6 @@ public class LootBox : MonoBehaviour
         Debug.Log("LootBox opened");
         closedLootBox.SetActive(false);
         openedLootBox.SetActive(true);
+
     }
 }
