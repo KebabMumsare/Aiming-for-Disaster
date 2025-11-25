@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class LootBox : MonoBehaviour
 {
@@ -9,9 +10,18 @@ public class LootBox : MonoBehaviour
     public SpriteRenderer closedLootBoxSpriteRenderer;
     public SpriteRenderer openedLootBoxSpriteRenderer;
 
-    public int LootBoxTier;
-    public int LootAmount;
+    [Header("Loot Box Settings")]
+    public int lootBoxTier;
+    public int minLootAmount = 2;
+    public int maxLootAmount = 5;
     public LootPools lootPools;
+
+    private int lootAmount;
+
+    [Header("Loot Animation Settings")]
+    public float lootEjectDistance = 3f;
+    public float lootEjectDuration = 0.5f;
+    public float minDistanceFromChest = 1.5f;
 
     private bool hasBeenOpened = false;
 
@@ -48,9 +58,8 @@ public class LootBox : MonoBehaviour
         }
 
         //TODO: Add more rarities/tiers
-        LootBoxTier = 0;
-        LootAmount = Random.Range(2, 5);
-        Debug.Log("Loot Box Tier: " + LootBoxTier + " Loot Amount: " + LootAmount);
+        lootBoxTier = 0;
+        lootAmount = Random.Range(minLootAmount, maxLootAmount + 1);
     }
 
     void Update()
@@ -72,13 +81,40 @@ public class LootBox : MonoBehaviour
 
     void DropLoot()
     {
-        for (int i = 0; i < LootAmount; i++)
+        for (int i = 0; i < lootAmount; i++)
         {
-            GameObject loot = lootPools.GetRandomItemFromTier(LootBoxTier);
+            GameObject loot = lootPools.GetRandomItemFromTier(lootBoxTier);
             if (loot != null)
             {
-                Instantiate(loot, transform.position + (Vector3)(Random.insideUnitCircle * 2f + new Vector2(1f, 1f)), Quaternion.identity);
+                GameObject spawnedLoot = Instantiate(loot, transform.position, Quaternion.identity);
+                
+                Vector2 randomDirection = Random.insideUnitCircle.normalized;
+                float distance = Random.Range(minDistanceFromChest, lootEjectDistance);
+                Vector3 targetPosition = transform.position + (Vector3)(randomDirection * distance);
+                
+                StartCoroutine(EaseOutLoot(spawnedLoot.transform, targetPosition));
             }
         }
+    }
+
+    IEnumerator EaseOutLoot(Transform lootTransform, Vector3 targetPosition)
+    {
+        Vector3 startPosition = transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < lootEjectDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / lootEjectDuration;
+            
+            // Ease-out curve (starts fast, ends slow)
+            t = 1f - Mathf.Pow(1f - t, 3f);
+            
+            lootTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
+            
+            yield return null;
+        }
+
+        lootTransform.position = targetPosition;
     }
 }
