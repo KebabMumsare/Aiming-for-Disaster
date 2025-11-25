@@ -23,6 +23,10 @@ public class LootBox : MonoBehaviour
     public float lootEjectDuration = 0.5f;
     public float minDistanceFromChest = 1.5f;
 
+    [Header("Explosion VFX Settings")]
+    public GameObject explosionVFX;
+    public float explosionDelay = 1f; // Delay in seconds before explosion plays
+
     private bool hasBeenOpened = false;
 
     void Start()
@@ -77,6 +81,11 @@ public class LootBox : MonoBehaviour
         closedLootBox.SetActive(false);
         openedLootBox.SetActive(true);
         DropLoot();
+
+        if (explosionVFX != null)
+        {
+            StartCoroutine(ExplosionSequence());
+        }
     }
 
     void DropLoot()
@@ -116,5 +125,48 @@ public class LootBox : MonoBehaviour
         }
 
         lootTransform.position = targetPosition;
+    }
+
+    IEnumerator ExplosionSequence()
+    {
+        yield return new WaitForSeconds(explosionDelay);
+
+        ParticleSystem[] particleSystems = explosionVFX.GetComponentsInChildren<ParticleSystem>(true);
+        
+        if (particleSystems.Length == 0)
+        {
+            Debug.LogWarning("No particle systems found in ExplosionVFX!");
+            yield break;
+        }
+
+        foreach (ParticleSystem ps in particleSystems)
+        {
+            ps.Play();
+        }
+
+        boxCollider.enabled = false;
+        openedLootBoxSpriteRenderer.enabled = false;
+
+        while (true)
+        {
+            bool anyPlaying = false;
+            foreach (ParticleSystem ps in particleSystems)
+            {
+                if (ps != null && ps.isPlaying)
+                {
+                    anyPlaying = true;
+                    break;
+                }
+            }
+            
+            if (!anyPlaying)
+            {
+                break;
+            }
+            
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 }
