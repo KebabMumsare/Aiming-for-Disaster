@@ -19,7 +19,7 @@ public class PlayerXP : MonoBehaviour
         skillPointsText.text = "SP:" + skillPoints;
         xpText.text = "XP: " + currentXP + " / " + xpToNextLevel;
         
-        // check if levelText and skillPointsText are not null
+        // check if levelText, skillPointsText and xpText are assigned
         if (levelText == null || skillPointsText == null || xpText == null)
         {
             Debug.LogError("LevelText or SkillPointsText or XPText is not assigned. Assign them on the Player");
@@ -33,6 +33,7 @@ public class PlayerXP : MonoBehaviour
         CheckLevel();
     }
 
+    // Check if XP is enough to level up and also check skillpoints
     public void CheckLevel() {
         if (currentXP >= xpToNextLevel)
         {

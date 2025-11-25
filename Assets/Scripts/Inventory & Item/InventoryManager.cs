@@ -35,6 +35,21 @@ public class InventoryManager : MonoBehaviour
         {
             mainInventoryPanel.SetActive(false); // Start with the inventory hidden
         }
+
+        if (health == null)
+        {
+            Debug.LogError("Player health is not assigned. Assign it on the InventoryManager");
+        }
+
+        if (mainInventoryPanel == null)
+        {
+            Debug.LogError("MainInventoryPanel is not assigned. Assign 'Main Inventory Group' on the InventoryManager");
+        }
+
+        if (inventoryItemPrefab == null)
+        {
+            Debug.LogError("'InventoryItemPrefab' is not assigned. Assign the 'InventoryItem' prefab on the InventoryManager");
+        }
     }
 
     public bool IsInventoryOpen => mainInventoryPanel != null && mainInventoryPanel.activeSelf;
