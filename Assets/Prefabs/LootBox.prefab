@@ -275,9 +275,13 @@ MonoBehaviour:
   boxCollider: {fileID: 3105095203922143640}
   closedLootBoxSpriteRenderer: {fileID: 3344985435204585137}
   openedLootBoxSpriteRenderer: {fileID: 8789775823408100086}
-  LootBoxTier: 0
-  LootAmount: 0
-  lootPools: {fileID: 0}
+  lootBoxTier: 0
+  minLootAmount: 2
+  maxLootAmount: 5
+  lootPools: {fileID: 8249679186981385931}
+  lootEjectDistance: 3
+  lootEjectDuration: 0.5
+  minDistanceFromChest: 1.5
 --- !u!114 &7682341208748809410
 MonoBehaviour:
   m_ObjectHideFlags: 0
