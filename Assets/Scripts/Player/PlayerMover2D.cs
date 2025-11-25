@@ -14,9 +14,12 @@ public class PlayerMover2D : MonoBehaviour
         inputRouter = GetComponent<PlayerInputRouter>();
     }
 
+    private float baseMoveSpeed;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        baseMoveSpeed = moveSpeed;
     }
 
     void FixedUpdate()
@@ -31,5 +34,10 @@ public class PlayerMover2D : MonoBehaviour
 
         // Set velocity directly - will come to full stop when moveInput is zero
         rb.linearVelocity = moveInput * moveSpeed;
+    }
+
+    public void SetSpeedMultiplier(float multiplier)
+    {
+        moveSpeed = baseMoveSpeed * multiplier;
     }
 }
