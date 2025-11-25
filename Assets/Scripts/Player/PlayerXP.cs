@@ -10,32 +10,47 @@ public class PlayerXP : MonoBehaviour
     public int skillPoints = 1;
     public TextMeshProUGUI xpText;
     public TextMeshProUGUI levelText;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public TextMeshProUGUI skillPointsText;
+    
+    
     void Start()
     {
         levelText.text = "LVL:" + currentLevel;
+        skillPointsText.text = "SP:" + skillPoints;
+        xpText.text = "XP: " + currentXP + " / " + xpToNextLevel;
+        
+        // check if levelText, skillPointsText and xpText are assigned
+        if (levelText == null || skillPointsText == null || xpText == null)
+        {
+            Debug.LogError("LevelText or SkillPointsText or XPText is not assigned. Assign them on the Player");
+        }
     }
 
-    public void AddXP(float xp)
+    public void AddXP(float xp) // Add XP - Used in EnemyBehaviorController
     {
         currentXP += xp;
         xpText.text = "XP: " + currentXP + " / " + xpToNextLevel;
         CheckLevel();
     }
 
+    // Check if XP is enough to level up and also check skillpoints
     public void CheckLevel() {
         if (currentXP >= xpToNextLevel)
         {
             currentLevel++;
             currentXP = currentXP - xpToNextLevel;
             xpToNextLevel *= 1.1f;
+            xpToNextLevel = Mathf.Round(xpToNextLevel); 
             xpText.text = currentXP + " / " + xpToNextLevel;
             skillPoints++;
+            if (currentXP >= xpToNextLevel) {
+                CheckLevel();
+            }
         }
         levelText.text = "LVL:" + currentLevel;
+        skillPointsText.text = "SP:" + skillPoints;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

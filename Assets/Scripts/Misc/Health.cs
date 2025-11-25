@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
             if (CompareTag("Enemy"))
             {
                 Destroy(gameObject);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerXP>().AddXP(GetComponent<EnemyBehaviorController>().xpReward);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerXP>().AddXP(GetComponent<EnemyBehaviorController>().xpReward); // Add XP when enemy is killed - found in EnemyBehaviorController
             }
             if (CompareTag("Player"))
             {
