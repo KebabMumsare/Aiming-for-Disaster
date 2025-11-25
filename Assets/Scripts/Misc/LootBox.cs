@@ -9,7 +9,12 @@ public class LootBox : MonoBehaviour
     public SpriteRenderer closedLootBoxSpriteRenderer;
     public SpriteRenderer openedLootBoxSpriteRenderer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int LootBoxTier;
+    public int LootAmount;
+    public LootPools lootPools;
+
+    private bool hasBeenOpened = false;
+
     void Start()
     {
         if (health == null)
@@ -20,6 +25,15 @@ public class LootBox : MonoBehaviour
         else
         {
             Debug.Log("LootBox health found");
+        }
+
+        if (lootPools == null)
+        {
+            lootPools = FindFirstObjectByType<LootPools>();
+            if (lootPools == null)
+            {
+                Debug.LogError("LootPools not found! Please assign it in the Inspector or add a LootPools component to the scene.");
+            }
         }
         
         if (Random.Range(0, 2) == 0)
@@ -32,12 +46,16 @@ public class LootBox : MonoBehaviour
             closedLootBoxSpriteRenderer.flipX = false;
             openedLootBoxSpriteRenderer.flipX = false;
         }
+
+        //TODO: Add more rarities/tiers
+        LootBoxTier = 0;
+        LootAmount = Random.Range(2, 5);
+        Debug.Log("Loot Box Tier: " + LootBoxTier + " Loot Amount: " + LootAmount);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (health.currentHealth <= 0f)   
+        if (health.currentHealth <= 0f && !hasBeenOpened)   
         {
             OpenLootBox();
         }
@@ -45,9 +63,22 @@ public class LootBox : MonoBehaviour
 
     void OpenLootBox()
     {
+        hasBeenOpened = true;
         Debug.Log("LootBox opened");
         closedLootBox.SetActive(false);
         openedLootBox.SetActive(true);
+        DropLoot();
+    }
 
+    void DropLoot()
+    {
+        for (int i = 0; i < LootAmount; i++)
+        {
+            GameObject loot = lootPools.GetRandomItemFromTier(LootBoxTier);
+            if (loot != null)
+            {
+                Instantiate(loot, transform.position + (Vector3)(Random.insideUnitCircle * 2f + new Vector2(1f, 1f)), Quaternion.identity);
+            }
+        }
     }
 }
