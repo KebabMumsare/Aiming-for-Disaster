@@ -14,7 +14,7 @@ public class LootBoxSpawner : MonoBehaviour
         for (int i = 0; i < numberOfLootBoxes; i++)
         {
             GameObject floorTile = FloorTiles[Random.Range(0, FloorTiles.Length)];
-            Instantiate(lootBoxPrefab, new Vector3(floorTile.transform.position.x + Random.Range(-1, 1), floorTile.transform.position.y + Random.Range(-1, 1) + 1, 0), Quaternion.identity);
+            Instantiate(lootBoxPrefab, new Vector3(floorTile.transform.position.x, floorTile.transform.position.y, 0), Quaternion.identity, gameObject.transform);
         }
     }   
 }

@@ -101,30 +101,71 @@ public class LootBox : MonoBehaviour
                 float distance = Random.Range(minDistanceFromChest, lootEjectDistance);
                 Vector3 targetPosition = transform.position + (Vector3)(randomDirection * distance);
                 
-                StartCoroutine(EaseOutLoot(spawnedLoot.transform, targetPosition));
+                StartCoroutine(EjectLootWithPhysics(spawnedLoot, targetPosition));
             }
         }
     }
 
-    IEnumerator EaseOutLoot(Transform lootTransform, Vector3 targetPosition)
+    IEnumerator EjectLootWithPhysics(GameObject loot, Vector3 targetPosition)
     {
-        Vector3 startPosition = transform.position;
-        float elapsed = 0f;
-
-        while (elapsed < lootEjectDuration)
+        BoxCollider2D itemCollider = loot.GetComponent<BoxCollider2D>();
+        itemCollider.isTrigger = false;
+        
+        Rigidbody2D rb = loot.GetComponent<Rigidbody2D>();
+        if (rb == null)
         {
-            elapsed += Time.deltaTime;
-            float t = elapsed / lootEjectDuration;
-            
-            // Ease-out curve (starts fast, ends slow)
-            t = 1f - Mathf.Pow(1f - t, 3f);
-            
-            lootTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
-            
-            yield return null;
+            rb = loot.AddComponent<Rigidbody2D>();
         }
-
-        lootTransform.position = targetPosition;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 0f;
+        rb.linearDamping = 2f;
+        rb.freezeRotation = true;
+        
+        PhysicsMaterial2D bounceMaterial = new PhysicsMaterial2D("LootBounce");
+        bounceMaterial.bounciness = 0.6f;
+        bounceMaterial.friction = 0.4f;
+        itemCollider.sharedMaterial = bounceMaterial;
+        
+        IgnoreCollisionsWith(itemCollider, new string[] { "Enemy", "LootBox" });
+        
+        PickupItem[] allItems = FindObjectsOfType<PickupItem>();
+        foreach (PickupItem otherItem in allItems)
+        {
+            if (otherItem.gameObject != loot)
+            {
+                Collider2D otherCollider = otherItem.GetComponent<Collider2D>();
+                if (otherCollider != null)
+                {
+                    Physics2D.IgnoreCollision(itemCollider, otherCollider, true);
+                }
+            }
+        }
+        
+        Vector2 direction = ((Vector2)targetPosition - (Vector2)transform.position).normalized;
+        float distance = Vector2.Distance(transform.position, targetPosition);
+        rb.linearVelocity = direction * (distance / lootEjectDuration);
+        
+        yield return new WaitForSeconds(lootEjectDuration);
+        
+        Destroy(rb);
+        itemCollider.isTrigger = true;
+        itemCollider.sharedMaterial = null;
+    }
+    
+    void IgnoreCollisionsWith(Collider2D itemCollider, string[] tags)
+    {
+        foreach (string tag in tags)
+        {
+            GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
+            foreach (GameObject obj in objects)
+            {
+                Collider2D col = obj.GetComponent<Collider2D>();
+                if (col != null)
+                {
+                    Physics2D.IgnoreCollision(itemCollider, col, true);
+                }
+            }
+        }
     }
 
     IEnumerator ExplosionSequence()
