@@ -12,6 +12,7 @@ public class InventoryItemDetailsUI : MonoBehaviour
     [SerializeField] public TextMeshProUGUI actionText;
     [SerializeField] public TextMeshProUGUI descriptionText;
     [SerializeField] public TextMeshProUGUI statsText;
+    [SerializeField] public Image itemImage;
 
     public void Show(Item item, int stackCount)
     {
@@ -22,7 +23,7 @@ public class InventoryItemDetailsUI : MonoBehaviour
 
         if (itemNameText != null)
         {
-            itemNameText.text = item != null ? item.name : string.Empty;
+            itemNameText.text = item != null ? $"Name: {item.name}" : string.Empty;
         }
 
         if (typeText != null)
@@ -30,11 +31,14 @@ public class InventoryItemDetailsUI : MonoBehaviour
             typeText.text = item != null ? $"Type: {item.type}" : string.Empty;
         }
 
-        if (stackText != null)
+        if (item.stackable == false)
         {
-            stackText.text = item != null && item.stackable
-                ? $"Stack: {item.maxStack}"
-                : "Stack: Not stackable";
+            stackText.text = string.Empty;
+        }
+
+        if (item.stackable == true)
+        {
+            stackText.text = item != null ? $"Stack: {stackCount}" : string.Empty;
         }
 
         if (actionText != null)
@@ -46,6 +50,11 @@ public class InventoryItemDetailsUI : MonoBehaviour
         if (statsText != null)
         {
             statsText.text = item != null ? BuildStatsText(item) : string.Empty;
+        }
+
+        if (itemImage != null)
+        {
+            itemImage.sprite = item != null ? item.image : null;
         }
     }
 
@@ -63,12 +72,12 @@ public class InventoryItemDetailsUI : MonoBehaviour
 
         if (item.type == ItemType.Consumable && item.healAmount > 0f)
         {
-            builder.AppendLine($"Heal Amount: {item.healAmount}");
+            builder.AppendLine($"Heal Amount: {item.healAmount} HP");
         }
 
         if (builder.Length == 0)
         {
-            builder.Append("No stats available.");
+            builder.Append(string.Empty);
         }
 
         return builder.ToString().TrimEnd();

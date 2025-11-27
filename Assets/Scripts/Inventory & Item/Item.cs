@@ -42,8 +42,7 @@ public enum ItemType
 
 public enum ActionType
 {
-    Throw,
-    BoomerangThrow,
+    Ranged,
     Melee,
     Use
 }
