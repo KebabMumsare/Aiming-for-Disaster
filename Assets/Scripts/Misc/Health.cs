@@ -3,19 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-
     [SerializeField] public float maxHealth = 100f;
     [SerializeField] public float currentHealth;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void TakeDamage(float damage)
@@ -23,17 +20,52 @@ public class Health : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0f)
         {
-            if (CompareTag("Enemy"))
-            {
-                Destroy(gameObject);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerXP>().AddXP(GetComponent<EnemyBehaviorController>().xpReward);
-            }
-            if (CompareTag("Player"))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-            Die();
+            HandleDeath();
         }
+    }
+
+    private void HandleDeath()
+    {
+        // If this is an enemy, award XP to player and give currency / call Enemydrop
+        if (CompareTag("Enemy"))
+        {
+            // Award XP (do this before the enemy GameObject is destroyed)
+            var player = GameObject.FindGameObjectWithTag("Player");
+            var ebc = GetComponent<EnemyBehaviorController>();
+            if (player != null && ebc != null)
+            {
+                var pxp = player.GetComponent<PlayerXP>();
+                if (pxp != null) pxp.AddXP(ebc.xpReward);
+            }
+
+            // Try to use Enemydrop if present (it will handle giving currency and destroying the enemy)
+            var drop = GetComponent<Enemydrop>();
+            if (drop != null)
+            {
+                drop.Die();
+            }
+            else
+            {
+                // fallback: add a default amount and destroy
+                Currency.AddAmount(10);
+                Destroy(gameObject);
+            }
+
+            Die();
+            return;
+        }
+
+        // If this is the player, reload the scene
+        if (CompareTag("Player"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Die();
+            return;
+        }
+
+        // Generic fallback for other objects
+        Destroy(gameObject);
+        Die();
     }
 
     public void Heal(float amount)
@@ -44,10 +76,10 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
-    
+
     public void Die()
     {
-        Debug.Log("Die");
+        Debug.Log($"{gameObject.name} died.");
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -55,7 +87,8 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("Hit enemy with " + other.gameObject.name);
-            TakeDamage(other.gameObject.GetComponent<Damage>().GetDamage());
+            var dmg = other.gameObject.GetComponent<Damage>()?.GetDamage() ?? 0f;
+            TakeDamage(dmg);
         }
     }
 }

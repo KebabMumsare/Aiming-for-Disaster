@@ -8,13 +8,15 @@ public class Currency : MonoBehaviour
     public static Currency Instance { get; private set; }
 
     [Header("Starting / UI (optional)")]
-    [SerializeField] private int startingBalance = 0;
-    [SerializeField] private Text uiText;
-    [SerializeField] private TMP_Text tmpText;
+    public int startingBalance = 0;           // public & serialized
+    public Text uiText;                       // assign in inspector
+    public TMP_Text tmpText;                  // assign in inspector
 
     public event Action<int> OnChange;
 
-    private int _balance;
+    [Header("Runtime (visible)")]
+    [SerializeField] public int balance;      // public & serialized so you can watch it in Inspector
+    public int Balance => balance;
 
     private void Awake()
     {
@@ -27,74 +29,129 @@ public class Currency : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        _balance = Mathf.Max(0, startingBalance);
+        balance = Mathf.Max(0, startingBalance);
         Notify();
     }
 
-    private void Notify()
+    public void Notify()
     {
-        OnChange?.Invoke(_balance);
+        OnChange?.Invoke(balance);
 
-        if (tmpText != null) tmpText.text = _balance.ToString();
-        else if (uiText != null) uiText.text = _balance.ToString();
-        else
+        if (tmpText != null)
         {
-            var go = GameObject.Find("CurrencyText");
-            if (go != null)
+            tmpText.text = balance.ToString();
+            return;
+        }
+
+        if (uiText != null)
+        {
+            uiText.text = balance.ToString();
+            return;
+        }
+
+        var go = GameObject.Find("CurrencyText") ?? GameObject.Find("Currency");
+        if (go != null)
+        {
+            var t = go.GetComponent<TMP_Text>();
+            if (t != null) { tmpText = t; tmpText.text = balance.ToString(); return; }
+            var u = go.GetComponent<Text>();
+            if (u != null) { uiText = u; uiText.text = balance.ToString(); return; }
+        }
+
+        var allTmps = FindObjectsOfType<TMP_Text>();
+        foreach (var tt in allTmps)
+        {
+            if (tt.gameObject.name.IndexOf("currency", StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                var t = go.GetComponent<TMP_Text>();
-                if (t != null) t.text = _balance.ToString();
-                else
-                {
-                    var u = go.GetComponent<Text>();
-                    if (u != null) u.text = _balance.ToString();
-                }
+                tmpText = tt;
+                tmpText.text = balance.ToString();
+                return;
             }
         }
     }
 
-    public int GetBalance() => _balance;
-
+    // instance methods (public)
     public void Add(int amount)
     {
-        amount = Mathf.FloorToInt(amount);
         if (amount <= 0) return;
-        _balance += amount;
+        balance += amount;
         Notify();
     }
 
     public bool Spend(int amount)
     {
-        amount = Mathf.FloorToInt(amount);
         if (amount <= 0) return false;
-        if (amount > _balance) return false;
-        _balance -= amount;
+        if (amount > balance) return false;
+        balance -= amount;
         Notify();
         return true;
     }
 
     public void SetBalance(int amount)
     {
-        _balance = Mathf.Max(0, Mathf.FloorToInt(amount));
+        balance = Mathf.Max(0, amount);
         Notify();
     }
 
-    // Static convenience wrappers for quick calls from other scripts
-    public static int Get() => Instance != null ? Instance.GetBalance() : 0;
+    // ensure a singleton exists (creates one if missing)
+    private static void EnsureInstance()
+    {
+        if (Instance != null) return;
+
+        var existing = FindObjectOfType<Currency>();
+        if (existing != null)
+        {
+            Instance = existing;
+            return;
+        }
+
+        var go = new GameObject("Currency");
+        Instance = go.AddComponent<Currency>();
+
+        var t = GameObject.Find("CurrencyText")?.GetComponent<TMP_Text>()
+                ?? GameObject.Find("Currency")?.GetComponent<TMP_Text>();
+
+        if (t == null)
+        {
+            var all = FindObjectsOfType<TMP_Text>();
+            foreach (var tt in all)
+            {
+                if (tt.gameObject.name.IndexOf("currency", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    t = tt;
+                    break;
+                }
+            }
+        }
+
+        if (t != null) Instance.tmpText = t;
+
+        // Awake ran and called Notify()
+    }
+
+    // static convenience wrappers
+    public static int Get()
+    {
+        EnsureInstance();
+        return Instance != null ? Instance.balance : 0;
+    }
+
     public static void AddAmount(int amount)
     {
+        EnsureInstance();
         if (Instance != null) Instance.Add(amount);
-        else Debug.LogWarning("Currency.Instance is null. Attach Currency to a GameObject in the scene.");
     }
+
     public static bool SpendAmount(int amount)
     {
+        EnsureInstance();
         if (Instance != null) return Instance.Spend(amount);
-        Debug.LogWarning("Currency.Instance is null. Attach Currency to a GameObject in the scene.");
         return false;
     }
+
     public static void Set(int amount)
     {
+        EnsureInstance();
         if (Instance != null) Instance.SetBalance(amount);
-        else Debug.LogWarning("Currency.Instance is null. Attach Currency to a GameObject in the scene.");
     }
 }
