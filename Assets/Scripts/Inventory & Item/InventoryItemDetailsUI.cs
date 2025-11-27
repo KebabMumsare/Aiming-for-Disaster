@@ -23,12 +23,12 @@ public class InventoryItemDetailsUI : MonoBehaviour
 
         if (itemNameText != null)
         {
-            itemNameText.text = item != null ? $"Name: {item.name}" : string.Empty;
+            itemNameText.text = item != null ? $"{item.name}" : string.Empty;
         }
 
         if (typeText != null)
         {
-            typeText.text = item != null ? $"Type: {item.type}" : string.Empty;
+            typeText.text = item != null ? $"{item.type}" : string.Empty;
         }
 
         if (item.stackable == false)
@@ -38,14 +38,13 @@ public class InventoryItemDetailsUI : MonoBehaviour
 
         if (item.stackable == true)
         {
-            stackText.text = item != null ? $"Stack: {stackCount}" : string.Empty;
+            stackText.text = item != null ? $"Max Stack: {item.maxStack}" : string.Empty;
         }
 
         if (actionText != null)
         {
-            actionText.text = item != null ? $"Action: {item.actionType}" : string.Empty;
+            actionText.text = item != null ? $"{item.actionType}" : string.Empty;
         }
-
 
         if (statsText != null)
         {

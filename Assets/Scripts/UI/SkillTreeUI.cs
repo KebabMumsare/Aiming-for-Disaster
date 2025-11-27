@@ -24,7 +24,6 @@ public class SkillTreeUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healingCostText;
 
     [Header("General")]
-    [SerializeField] private TextMeshProUGUI availablePointsText;
     [SerializeField] private PlayerXP playerXP;
 
     private void Start()
@@ -86,9 +85,6 @@ public class SkillTreeUI : MonoBehaviour
     private void UpdateUI()
     {
         if (skillManager == null || playerXP == null) return;
-
-        if (availablePointsText != null)
-            availablePointsText.text = $"Skill Points: {playerXP.skillPoints}";
 
         if (speedLevelText != null)
             speedLevelText.text = $"Lvl: {skillManager.speedLevel}";
