@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] public float maxHealth = 100f;
     [SerializeField] public float currentHealth;
+    public bool isImmortal = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private float baseMaxHealth;
 
@@ -39,7 +40,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0f)
+        if (currentHealth <= 0f && isImmortal == false)
         {
             if (CompareTag("Enemy"))
             {

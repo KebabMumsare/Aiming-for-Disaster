@@ -14,14 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
   type: 0
-  actionType: 2
+  actionType: 1
   range: {x: 5, y: 4}
   weaponPrefab: {fileID: 211755348097550045, guid: 4bccae3548d23d34a94c3b61f6e7ce07, type: 3}
   stackable: 0
   maxStack: 0
   image: {fileID: -3232310038938315753, guid: 7ecf3c57f13a7234d947285c85eef6a9, type: 3}
-  weaponDamage: 12
-  attackSpeed: 0
   healAmount: 0
-  description: 
-  extraStats: []

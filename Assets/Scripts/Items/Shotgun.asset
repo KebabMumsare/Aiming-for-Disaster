@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
   type: 0
-  actionType: 2
+  actionType: 1
   range: {x: 5, y: 4}
   weaponPrefab: {fileID: 8497970257941288861, guid: 03b55a9887608f048953a0e1471c9463, type: 3}
   stackable: 0
