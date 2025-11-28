@@ -85,4 +85,18 @@ public class SkillManager : MonoBehaviour
     {
         return 1f + (healingLevel * healingMultiplierPerLevel);
     }
+
+    public float GetMoveSpeed()
+    {
+        if (playerMover != null)
+            return playerMover.CurrentMoveSpeed;
+        return 0f;
+    }
+
+    public float GetMaxHealth()
+    {
+        if (playerHealth != null)
+            return playerHealth.maxHealth;
+        return 0f;
+    }
 }

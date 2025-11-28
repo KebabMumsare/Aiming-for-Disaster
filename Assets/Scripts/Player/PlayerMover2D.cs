@@ -40,4 +40,6 @@ public class PlayerMover2D : MonoBehaviour
     {
         moveSpeed = baseMoveSpeed * multiplier;
     }
+
+    public float CurrentMoveSpeed => moveSpeed;
 }

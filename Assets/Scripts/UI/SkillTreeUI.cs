@@ -12,16 +12,19 @@ public class SkillTreeUI : MonoBehaviour
     [SerializeField] private Button speedUpgradeButton;
     [SerializeField] private TextMeshProUGUI speedLevelText;
     [SerializeField] private TextMeshProUGUI speedCostText;
+    [SerializeField] private TextMeshProUGUI speedValueText;
 
     [Header("Health Upgrade")]
     [SerializeField] private Button healthUpgradeButton;
     [SerializeField] private TextMeshProUGUI healthLevelText;
     [SerializeField] private TextMeshProUGUI healthCostText;
+    [SerializeField] private TextMeshProUGUI healthValueText;
 
     [Header("Healing Upgrade")]
     [SerializeField] private Button healingUpgradeButton;
     [SerializeField] private TextMeshProUGUI healingLevelText;
     [SerializeField] private TextMeshProUGUI healingCostText;
+    [SerializeField] private TextMeshProUGUI healingValueText;
 
     [Header("General")]
     [SerializeField] private PlayerXP playerXP;
@@ -104,6 +107,16 @@ public class SkillTreeUI : MonoBehaviour
         
         if (healingCostText != null)
             healingCostText.text = "Cost: 1 SP";
+
+        // Update Stat Values
+        if (speedValueText != null)
+            speedValueText.text = $"Move Speed: {skillManager.GetMoveSpeed():F1}";
+
+        if (healthValueText != null)
+            healthValueText.text = $"Max Health: {skillManager.GetMaxHealth():F0}";
+
+        if (healingValueText != null)
+            healingValueText.text = $"Heal Multiplier: {skillManager.GetHealingMultiplier():F1}x";
 
         // Enable/Disable buttons based on points
         bool canAfford = playerXP.skillPoints > 0;
