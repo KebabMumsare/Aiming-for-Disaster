@@ -7,8 +7,16 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] private Health health;
     [SerializeField] private Image healthBarFill;
 
+    private Canvas canvas;
+
     private void Start()
     {
+        canvas = GetComponent<Canvas>();
+        if (canvas != null)
+        {
+            canvas.enabled = false; // Hide initially
+        }
+
         // Try to find Health component in parent if not assigned
         if (health == null)
         {
@@ -41,6 +49,12 @@ public class EnemyHealthBar : MonoBehaviour
         {
             float fillAmount = Mathf.Clamp01(currentHealth / maxHealth);
             healthBarFill.fillAmount = fillAmount;
+        }
+
+        if (canvas != null)
+        {
+            // Show only if health is not full
+            canvas.enabled = currentHealth < maxHealth;
         }
     }
 

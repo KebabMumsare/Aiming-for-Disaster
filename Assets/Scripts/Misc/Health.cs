@@ -23,12 +23,6 @@ public class Health : MonoBehaviour
     public void SetMaxHealthMultiplier(float multiplier)
     {
         float newMaxHealth = baseMaxHealth * multiplier;
-        // Adjust current health proportionally or just increase max? 
-        // Usually in games, increasing max health also heals for the amount gained or keeps percentage.
-        // Let's keep percentage constant or just add the difference.
-        // Simple approach: Increase max health, current health stays same (unless it was full?)
-        // Better approach: Maintain health percentage.
-        
         float healthPercent = currentHealth / maxHealth;
         maxHealth = newMaxHealth;
         currentHealth = maxHealth * healthPercent;
