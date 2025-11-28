@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Health : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] public float maxHealth = 100f;
     [SerializeField] public float currentHealth;
     public bool isImmortal = false;
+    public event Action<float, float> OnHealthChanged;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private float baseMaxHealth;
 
@@ -15,6 +17,7 @@ public class Health : MonoBehaviour
     {
         baseMaxHealth = maxHealth;
         currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     public void SetMaxHealthMultiplier(float multiplier)
@@ -29,6 +32,7 @@ public class Health : MonoBehaviour
         float healthPercent = currentHealth / maxHealth;
         maxHealth = newMaxHealth;
         currentHealth = maxHealth * healthPercent;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
         if (currentHealth <= 0f && isImmortal == false)
         {
             if (CompareTag("Enemy"))
@@ -62,6 +67,7 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
     
     public void Die()
