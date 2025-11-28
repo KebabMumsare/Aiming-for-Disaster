@@ -1683,6 +1683,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5904584696136110249}
   - {fileID: 4659132435127244221}
   - {fileID: 505038347610439660}
   m_Father: {fileID: 4436618745638776802}
@@ -2039,16 +2040,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3057242121430236188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.06263113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8400176346224456796}
-  m_Father: {fileID: 4659132435127244221}
+  m_Father: {fileID: 2488183590798529265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1139, y: -73}
+  m_AnchoredPosition: {x: -406.11743, y: 339.3259}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666930039371833726
@@ -4710,7 +4711,6 @@ RectTransform:
   - {fileID: 1657624126686468227}
   - {fileID: 1552518013394595948}
   - {fileID: 3072829359188887871}
-  - {fileID: 5904584696136110249}
   m_Father: {fileID: 2488183590798529265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6425,6 +6425,9 @@ PrefabInstance:
     - {fileID: 0}
     - {fileID: 0}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4567384501568123391, guid: 1021694841e530d4ca581561c6ed5297, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 5904584696136110249}
     - targetCorrespondingSourceObject: {fileID: 3747544608640644289, guid: 1021694841e530d4ca581561c6ed5297, type: 3}
       insertIndex: 1
       addedObject: {fileID: 7948274054092347954}
@@ -6437,9 +6440,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3747544608640644289, guid: 1021694841e530d4ca581561c6ed5297, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3072829359188887871}
-    - targetCorrespondingSourceObject: {fileID: 3747544608640644289, guid: 1021694841e530d4ca581561c6ed5297, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5904584696136110249}
     - targetCorrespondingSourceObject: {fileID: 9175802634082423271, guid: 1021694841e530d4ca581561c6ed5297, type: 3}
       insertIndex: 0
       addedObject: {fileID: 2725736381219460424}
