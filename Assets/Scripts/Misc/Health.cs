@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] public float maxHealth = 100f;
     [SerializeField] public float currentHealth;
-    public bool isImmortal = false;
+    public bool isImmortal = false; // if ticked, you wont die when reaching 0 health
     public event Action<float, float> OnHealthChanged;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private float baseMaxHealth;
@@ -41,15 +41,6 @@ public class Health : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
         if (currentHealth <= 0f && isImmortal == false)
         {
-            if (CompareTag("Enemy"))
-            {
-                Destroy(gameObject);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerXP>().AddXP(GetComponent<EnemyBehaviorController>().xpReward); // Add XP when enemy is killed - found in EnemyBehaviorController
-            }
-            if (CompareTag("Player"))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
             Die();
         }
     }
@@ -66,6 +57,15 @@ public class Health : MonoBehaviour
     
     public void Die()
     {
+        if (CompareTag("Enemy"))
+            {
+                Destroy(gameObject);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerXP>().AddXP(GetComponent<EnemyBehaviorController>().xpReward); // Add XP when enemy is killed - found in EnemyBehaviorController
+            }
+            if (CompareTag("Player"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         Debug.Log("Die");
     }
 

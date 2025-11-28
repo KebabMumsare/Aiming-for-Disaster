@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7e67844a47c5a418b3f6b16274b441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  health: {fileID: 267635044131732112}
   healthBarFill: {fileID: 3160289350473558219}
 --- !u!1 &2027217848977609698
 GameObject:
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 0}
   detectionRange: 5
-  xpReward: 120
+  xpReward: 25000
 --- !u!114 &267635044131732112
 MonoBehaviour:
   m_ObjectHideFlags: 0

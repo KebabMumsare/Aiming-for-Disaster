@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7e67844a47c5a418b3f6b16274b441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  health: {fileID: 1465933962181017746}
   healthBarFill: {fileID: 6262650531574428924}
 --- !u!1 &9066366765250460196
 GameObject:
