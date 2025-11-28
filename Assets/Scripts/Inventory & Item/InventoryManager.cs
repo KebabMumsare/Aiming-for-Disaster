@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     public Item item;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
+    public GameObject skillTreeUI;
     [SerializeField] private InventoryItemDetailsUI itemDetailsUI;
 
     private int NumberOfToolbarSlots = 7;
@@ -34,6 +35,10 @@ public class InventoryManager : MonoBehaviour
         if (mainInventoryPanel != null)
         {
             mainInventoryPanel.SetActive(false); // Start with the inventory hidden
+        }
+        if (skillTreeUI != null)
+        {
+            skillTreeUI.SetActive(false); // Start with the skill tree hidden
         }
 
         if (health == null)
@@ -73,9 +78,15 @@ public class InventoryManager : MonoBehaviour
         // if "I" is pressed down, toggle inventory panel
         if (playerInput.OpenInventoryPressed) // Use the new input property
         {
-            if (mainInventoryPanel != null)
+            if (IsInventoryOpen)
             {
-                mainInventoryPanel.SetActive(!mainInventoryPanel.activeSelf);
+                mainInventoryPanel.SetActive(false);
+                skillTreeUI.SetActive(false);
+            }
+            else
+            {
+                mainInventoryPanel.SetActive(true);
+                skillTreeUI.SetActive(false);
             }
         }
 

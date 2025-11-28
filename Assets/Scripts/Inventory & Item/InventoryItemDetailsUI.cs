@@ -71,7 +71,7 @@ public class InventoryItemDetailsUI : MonoBehaviour
 
         if (item.type == ItemType.Consumable && item.healAmount > 0f)
         {
-            builder.AppendLine($"Heal Amount: {item.healAmount} HP");
+            builder.AppendLine($"Heal: {item.healAmount} HP");
         }
 
         if (builder.Length == 0)
