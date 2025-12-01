@@ -6,6 +6,9 @@ public class EnemyBehaviorController : MonoBehaviour
     public GameObject playerTarget;
     public float detectionRange = 10f;
     public float xpReward = 10f;
+    public float bulletsReward = 10f;
+    public float magazinesReward = 1f;
+    
     protected AIDestinationSetter destinationSetter;
     protected Patrol patrol;
     protected IAstarAI ai;

@@ -60,6 +60,8 @@ public class Health : MonoBehaviour
         if (CompareTag("Enemy"))
             {
                 Destroy(gameObject);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Currencies>().AddBullets(GetComponent<EnemyBehaviorController>().bulletsReward); // Add bullets when enemy is killed - found in Currencies
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Currencies>().AddMagazines(GetComponent<EnemyBehaviorController>().magazinesReward); // Add magazines when enemy is killed - found in Currencies
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerXP>().AddXP(GetComponent<EnemyBehaviorController>().xpReward); // Add XP when enemy is killed - found in EnemyBehaviorController
             }
             if (CompareTag("Player"))
