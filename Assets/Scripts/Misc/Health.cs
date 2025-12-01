@@ -9,10 +9,8 @@ public class Health : MonoBehaviour
     [SerializeField] public float currentHealth;
     public bool isImmortal = false; // if ticked, you wont die when reaching 0 health
     public event Action<float, float> OnHealthChanged;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private float baseMaxHealth;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         baseMaxHealth = maxHealth;
@@ -29,7 +27,6 @@ public class Health : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -60,9 +57,20 @@ public class Health : MonoBehaviour
         if (CompareTag("Enemy"))
             {
                 Destroy(gameObject);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Currencies>().AddBullets(GetComponent<EnemyBehaviorController>().bulletsReward); // Add bullets when enemy is killed - found in Currencies
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Currencies>().AddMagazines(GetComponent<EnemyBehaviorController>().magazinesReward); // Add magazines when enemy is killed - found in Currencies
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerXP>().AddXP(GetComponent<EnemyBehaviorController>().xpReward); // Add XP when enemy is killed - found in EnemyBehaviorController
+                var player = GameObject.FindGameObjectWithTag("Player");
+                var enemyController = GetComponent<EnemyBehaviorController>();
+
+                if (player != null && enemyController != null)
+                {
+                    var currencies = player.GetComponent<Currencies>();
+                    if (currencies != null)
+                    {
+                        currencies.AddBullets(enemyController.bulletsReward); // give bullet
+                        currencies.AddMagazines(enemyController.magazinesReward); // give magazine
+                    }
+
+                    player.GetComponent<PlayerXP>()?.AddXP(enemyController.xpReward); // give xp
+                }
             }
             if (CompareTag("Player"))
             {
@@ -73,6 +81,7 @@ public class Health : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
+        // Check if the object colliding with is an enemy or lootbox
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "LootBox")
         {
             Debug.Log("Hit enemy with " + other.gameObject.name);
