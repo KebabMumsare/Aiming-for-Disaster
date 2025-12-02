@@ -7,6 +7,11 @@ public class PlayerMover2D : MonoBehaviour
     [SerializeField] PlayerInputRouter inputRouter;
     [SerializeField] float moveSpeed = 5f;
 
+    private const string _horizontal = "Horizontal";
+    private const string _vertical = "Vertical";
+
+    private Animator _animator;
+
     Rigidbody2D rb;
 
     void Reset()
@@ -20,6 +25,7 @@ public class PlayerMover2D : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         baseMoveSpeed = moveSpeed;
+        _animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -34,6 +40,9 @@ public class PlayerMover2D : MonoBehaviour
 
         // Set velocity directly - will come to full stop when moveInput is zero
         rb.linearVelocity = moveInput * moveSpeed;
+
+        _animator.SetFloat(_horizontal, moveInput.x);
+        _animator.SetFloat(_vertical, moveInput.y);
     }
 
     public void SetSpeedMultiplier(float multiplier)
