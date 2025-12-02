@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1654179318183361959}
   - component: {fileID: 1178087165959372251}
+  - component: {fileID: 7164587207332394142}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -47,3 +48,18 @@ MonoBehaviour:
   enemyContainer: {fileID: 0}
   doorParent: {fileID: 0}
   doorSearchTag: Closed_Door
+--- !u!114 &7164587207332394142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324354755822787538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2047be2cb2a8141bb06e28c1a0c165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootBoxPrefab: {fileID: 1422848156136698088, guid: bbfd704b0791c244b85ef51d5f92907e, type: 3}
+  minLootBoxes: 1
+  maxLootBoxes: 4
