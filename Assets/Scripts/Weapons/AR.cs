@@ -33,7 +33,6 @@ public class AR : Weapon
             return;
 
         attackCooldown = attackSpeed;
-        Debug.Log("Attack called");
         StartAttackWindow();
     }
 
@@ -66,15 +65,15 @@ public class AR : Weapon
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("OnTriggerEnter2D: " + other.gameObject.name);
+        Debug.Log("OnTriggerEnter2D: " + other.gameObject.name); // Unnecessary
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage");
+            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage"); // Unnecessary
             other.gameObject.GetComponent<Health>().TakeDamage(damage.GetDamage());
         }
         if (other.gameObject.tag == "LootBox")
         {
-            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage");
+            Debug.Log("Hit enemy " + other.gameObject.name + " with " + damage.GetDamage() + " damage"); // Unnecessary
             other.gameObject.GetComponent<Health>().TakeDamage(damage.GetDamage());
         }
     }

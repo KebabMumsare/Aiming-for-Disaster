@@ -109,14 +109,6 @@ public class InventoryManager : MonoBehaviour
                 health.Heal(healAmount);
                 UpdateSelectedItemDetails(selectedSlot);
             }
-            else if (itemInSlot != null)
-            {
-                Debug.Log("Selected item is not consumable or weapon.");
-            }
-            else
-            {
-                Debug.Log("No item to use.");
-            }
         }
 
         // Check for number key input to change selected slot
@@ -154,20 +146,15 @@ public class InventoryManager : MonoBehaviour
         UpdateSelectedItemDetails(newValue);
 
         // If new slot is a weapon slot with a weapon item, equip it
-        Debug.Log($"Changing to slot {newValue}, slot type: {inventorySlots[newValue].GetType()}");
         if (inventorySlots[newValue] is InventoryWeaponSlot weaponSlot)
         {
-            Debug.Log("Slot is InventoryWeaponSlot");
             InventoryItem itemInSlot = weaponSlot.GetComponentInChildren<InventoryItem>();
-            Debug.Log($"Item in slot: {(itemInSlot != null ? itemInSlot.name : "null")}");
             if (itemInSlot != null && itemInSlot.item != null)
             {
-                Debug.Log($"Item type: {itemInSlot.item.type}, Weapon prefab: {(itemInSlot.item.weaponPrefab != null ? itemInSlot.item.weaponPrefab.name : "null")}");
                 if (itemInSlot.item.type == ItemType.Weapon)
                 {
                     if (itemInSlot.item.weaponPrefab != null)
                     {
-                        Debug.Log("Calling EquipWeapon on weaponSlot");
                         weaponSlot.EquipWeapon(itemInSlot.item.weaponPrefab);
                     }
                     else
@@ -176,14 +163,6 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
-            else
-            {
-                Debug.Log("No item in weapon slot");
-            }
-        }
-        else
-        {
-            Debug.Log("Slot is NOT InventoryWeaponSlot");
         }
         CalculatePassiveBuffs();
     }
@@ -377,8 +356,6 @@ public class InventoryManager : MonoBehaviour
         float damageMultiplier = 1f;
         float xpMultiplier = 1f;
 
-        Debug.Log("Calculating Passive Buffs...");
-
         // Iterate through all inventory slots
         foreach (InventorySlot slot in inventorySlots)
         {
@@ -387,7 +364,6 @@ public class InventoryManager : MonoBehaviour
             {
                 foreach (var buff in itemInSlot.item.passiveBuffs)
                 {
-                    Debug.Log($"Found buff: {buff.statType} value: {buff.value} on item: {itemInSlot.item.name}");
                     switch (buff.statType)
                     {
                         case StatType.MoveSpeed:
@@ -403,8 +379,6 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log($"Total Multipliers - Speed: {moveSpeedMultiplier}, Damage: {damageMultiplier}, XP: {xpMultiplier}");
 
         // Apply Move Speed Buff
         if (health != null)
@@ -430,7 +404,6 @@ public class InventoryManager : MonoBehaviour
                 var weapon = weaponSlot.EquippedWeapon;
                 if (weapon != null)
                 {
-                    Debug.Log($"Applying damage multiplier {damageMultiplier} to weapon {weapon.name}");
                     weapon.SetDamageMultiplier(damageMultiplier);
                 }
             }

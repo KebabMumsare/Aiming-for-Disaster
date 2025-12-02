@@ -21,7 +21,6 @@ public abstract class Weapon : MonoBehaviour
     {
         if (damage != null)
         {
-            Debug.Log($"Weapon {weaponName} setting damage multiplier to {multiplier}");
             damage.SetDamageMultiplier(multiplier);
         }
         else

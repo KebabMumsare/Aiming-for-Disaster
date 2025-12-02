@@ -17,7 +17,6 @@ public class InventoryWeaponSlot : InventorySlot
 
         UnequipWeapon();
 
-        Debug.Log("Equipping weapon: " + newWeapon.name);
         var clone = Instantiate(newWeapon, WeaponPivot.transform);
         equippedWeapon = clone.GetComponent<Weapon>();
         if (equippedWeapon != null)

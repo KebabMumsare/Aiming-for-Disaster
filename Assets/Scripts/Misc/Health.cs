@@ -85,7 +85,6 @@ public class Health : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-        Debug.Log("Die");
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -93,7 +92,6 @@ public class Health : MonoBehaviour
         // Check if the object colliding with is an enemy or lootbox
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "LootBox")
         {
-            Debug.Log("Hit enemy with " + other.gameObject.name);
             TakeDamage(other.gameObject.GetComponent<Damage>().GetDamage());
         }
     }
