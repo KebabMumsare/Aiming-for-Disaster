@@ -185,6 +185,7 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("Slot is NOT InventoryWeaponSlot");
         }
+        CalculatePassiveBuffs();
     }
 
     void InitialiseSlots()
@@ -376,6 +377,8 @@ public class InventoryManager : MonoBehaviour
         float damageMultiplier = 1f;
         float xpMultiplier = 1f;
 
+        Debug.Log("Calculating Passive Buffs...");
+
         // Iterate through all inventory slots
         foreach (InventorySlot slot in inventorySlots)
         {
@@ -384,6 +387,7 @@ public class InventoryManager : MonoBehaviour
             {
                 foreach (var buff in itemInSlot.item.passiveBuffs)
                 {
+                    Debug.Log($"Found buff: {buff.statType} value: {buff.value} on item: {itemInSlot.item.name}");
                     switch (buff.statType)
                     {
                         case StatType.MoveSpeed:
@@ -399,6 +403,8 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
+
+        Debug.Log($"Total Multipliers - Speed: {moveSpeedMultiplier}, Damage: {damageMultiplier}, XP: {xpMultiplier}");
 
         // Apply Move Speed Buff
         if (health != null)
@@ -421,9 +427,10 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot is InventoryWeaponSlot weaponSlot)
             {
-                var weapon = weaponSlot.GetComponentInChildren<Weapon>();
+                var weapon = weaponSlot.EquippedWeapon;
                 if (weapon != null)
                 {
+                    Debug.Log($"Applying damage multiplier {damageMultiplier} to weapon {weapon.name}");
                     weapon.SetDamageMultiplier(damageMultiplier);
                 }
             }

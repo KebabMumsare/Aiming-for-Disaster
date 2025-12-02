@@ -8,6 +8,7 @@ public class Damage : MonoBehaviour
     public void SetDamageMultiplier(float multiplier)
     {
         damageMultiplier = multiplier;
+        Debug.Log($"Damage component multiplier set to {damageMultiplier}. Base damage: {damage}");
     }
     void Start()
     {
@@ -21,6 +22,8 @@ public class Damage : MonoBehaviour
     }
     public float GetDamage()
     {
-        return damage * damageMultiplier;
+        float finalDamage = damage * damageMultiplier;
+        Debug.Log($"GetDamage called. Base: {damage}, Multiplier: {damageMultiplier}, Final: {finalDamage}");
+        return finalDamage;
     }
 }

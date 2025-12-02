@@ -5,6 +5,7 @@ public class InventoryWeaponSlot : InventorySlot
     public GameObject WeaponPivot;
 
     private Weapon equippedWeapon;
+    public Weapon EquippedWeapon => equippedWeapon;
 
     public void EquipWeapon(GameObject newWeapon)
     {
