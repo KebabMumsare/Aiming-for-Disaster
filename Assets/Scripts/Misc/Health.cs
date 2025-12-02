@@ -32,11 +32,20 @@ public class Health : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string sourceTag = "")
     {
+        // ignore damage if this object is immortal
+        if (isImmortal) return;
+
+        // prevent enemies from damaging other enemies
+        if (CompareTag("Enemy") && string.Equals(sourceTag, "Enemy", StringComparison.OrdinalIgnoreCase))
+            return;
+
         currentHealth -= damage;
+        currentHealth = Mathf.Max(0f, currentHealth);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
-        if (currentHealth <= 0f && isImmortal == false)
+
+        if (currentHealth <= 0f && !isImmortal)
         {
             Die();
         }
