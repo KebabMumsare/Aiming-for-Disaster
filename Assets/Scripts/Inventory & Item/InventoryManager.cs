@@ -69,6 +69,7 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.LogError("'InventoryItemPrefab' is not assigned. Assign the 'InventoryItem' prefab on the InventoryManager");
         }
+        CalculatePassiveBuffs();
     }
 
     public bool IsInventoryOpen => mainInventoryPanel != null && mainInventoryPanel.activeSelf;
@@ -297,6 +298,7 @@ public class InventoryManager : MonoBehaviour
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
                 UpdateSelectedItemDetails(selectedSlot);
+                CalculatePassiveBuffs();
                 return true;
             }
         }
@@ -322,6 +324,7 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
+                CalculatePassiveBuffs();
                 return true;
             }
         }
@@ -357,6 +360,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     itemInSlot.RefreshCount();
                 }
+                CalculatePassiveBuffs();
             }
 
             return item;
@@ -365,4 +369,64 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
     
+    
+    public void CalculatePassiveBuffs()
+    {
+        float moveSpeedMultiplier = 1f;
+        float damageMultiplier = 1f;
+        float xpMultiplier = 1f;
+
+        // Iterate through all inventory slots
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null && itemInSlot.item != null && itemInSlot.item.passiveBuffs != null)
+            {
+                foreach (var buff in itemInSlot.item.passiveBuffs)
+                {
+                    switch (buff.statType)
+                    {
+                        case StatType.MoveSpeed:
+                            moveSpeedMultiplier += buff.value;
+                            break;
+                        case StatType.Damage:
+                            damageMultiplier += buff.value;
+                            break;
+                        case StatType.XP:
+                            xpMultiplier += buff.value;
+                            break;
+                    }
+                }
+            }
+        }
+
+        // Apply Move Speed Buff
+        if (health != null)
+        {
+            var playerMover = health.GetComponent<PlayerMover2D>();
+            if (playerMover != null)
+            {
+                playerMover.SetSpeedMultiplier(moveSpeedMultiplier);
+            }
+            
+            var playerXP = health.GetComponent<PlayerXP>();
+            if (playerXP != null)
+            {
+                playerXP.SetXPMultiplier(xpMultiplier);
+            }
+        }
+
+        // Apply Damage Buff to equipped weapons
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            if (slot is InventoryWeaponSlot weaponSlot)
+            {
+                var weapon = weaponSlot.GetComponentInChildren<Weapon>();
+                if (weapon != null)
+                {
+                    weapon.SetDamageMultiplier(damageMultiplier);
+                }
+            }
+        }
+    }
 }

@@ -3,7 +3,12 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     [SerializeField] float damage = 10f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float damageMultiplier = 1f;
+
+    public void SetDamageMultiplier(float multiplier)
+    {
+        damageMultiplier = multiplier;
+    }
     void Start()
     {
         
@@ -16,6 +21,6 @@ public class Damage : MonoBehaviour
     }
     public float GetDamage()
     {
-        return damage;
+        return damage * damageMultiplier;
     }
 }

@@ -11,7 +11,13 @@ public class PlayerXP : MonoBehaviour
     public TextMeshProUGUI xpText;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI skillPointsText;
-    
+
+    private float xpMultiplier = 1f;
+
+    public void SetXPMultiplier(float multiplier)
+    {
+        xpMultiplier = multiplier;
+    }
     
     void Start()
     {
@@ -28,7 +34,7 @@ public class PlayerXP : MonoBehaviour
 
     public void AddXP(float xp) // Add XP - Used in EnemyBehaviorController
     {
-        currentXP += xp;
+        currentXP += xp * xpMultiplier;
         xpText.text = "XP: " + currentXP + " / " + xpToNextLevel;
         CheckLevel();
     }

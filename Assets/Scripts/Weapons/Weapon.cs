@@ -17,6 +17,14 @@ public abstract class Weapon : MonoBehaviour
     protected bool isEquipped;
     public bool IsEquipped => isEquipped;
 
+    public void SetDamageMultiplier(float multiplier)
+    {
+        if (damage != null)
+        {
+            damage.SetDamageMultiplier(multiplier);
+        }
+    }
+
     public void TriggerAttackFlash()
     {
         if (attackRoutine != null)

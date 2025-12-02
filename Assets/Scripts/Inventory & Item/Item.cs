@@ -24,6 +24,9 @@ public class Item : ScriptableObject
     
     [Header("If heal item")]
     public float healAmount = 0f;
+
+    [Header("Passive Buffs")]
+    public List<PassiveBuff> passiveBuffs;
 }
 
 [System.Serializable]
@@ -37,12 +40,27 @@ public enum ItemType
 {
     Weapon,
     Consumable,
-    WeaponUpgrade
+    PassiveBuffItem
 }
 
 public enum ActionType
 {
     Ranged,
     Melee,
-    Use
+    Use,
+    Passive
+}
+
+public enum StatType
+{
+    MoveSpeed,
+    Damage,
+    XP
+}
+
+[System.Serializable]
+public struct PassiveBuff
+{
+    public StatType statType;
+    public float value; // Multiplier (e.g., 0.1 for +10%) or additive value
 }
