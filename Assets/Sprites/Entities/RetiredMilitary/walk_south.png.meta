@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: b3ab11d99f05e4141bdd0e3d6956c362
+guid: 544753135fc0f2a429ab1a0cb0844ecb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2912147235762990277
-    second: Down_0
+      213: -6469403663279107466
+    second: walk_south_0
   - first:
-      213: -5137298145869693822
-    second: Down_1
+      213: -4520308287001561092
+    second: walk_south_1
   - first:
-      213: 2213548795106296147
-    second: Down_2
+      213: -3996048704862621271
+    second: walk_south_2
   - first:
-      213: 6794834511678964113
-    second: Down_3
+      213: -5021428917795472668
+    second: walk_south_3
   - first:
-      213: -4668470378630824462
-    second: Down_4
+      213: 5013720538488389105
+    second: walk_south_4
   - first:
-      213: -3442070404843355325
-    second: Down_5
+      213: 6208592295848244781
+    second: walk_south_5
+  - first:
+      213: -8026356863978160267
+    second: walk_south_6
+  - first:
+      213: -8708573328902442304
+    second: walk_south_7
+  - first:
+      213: 7710117918288673644
+    second: walk_south_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Down_0
+      name: walk_south_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 0
-        width: 34
-        height: 57
+        x: 41
+        y: 20
+        width: 156
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cce9415b760a6820800000000000000
-      internalID: 2912147235762990277
+      spriteID: 67253a505af0836a0800000000000000
+      internalID: -6469403663279107466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down_1
+      name: walk_south_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 0
-        width: 34
-        height: 58
+        x: 329
+        y: 20
+        width: 154
+        height: 265
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28cf92e0e86a4b8b0800000000000000
-      internalID: -5137298145869693822
+      spriteID: cf774060093a441c0800000000000000
+      internalID: -4520308287001561092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down_2
+      name: walk_south_2
       rect:
         serializedVersion: 2
-        x: 143
-        y: 0
-        width: 34
-        height: 57
+        x: 612
+        y: 23
+        width: 161
+        height: 255
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3510e49b6ea18be10800000000000000
-      internalID: 2213548795106296147
+      spriteID: 9a1f089ffde2b88c0800000000000000
+      internalID: -3996048704862621271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down_3
+      name: walk_south_3
       rect:
         serializedVersion: 2
-        x: 207
-        y: 0
-        width: 34
-        height: 56
+        x: 896
+        y: 16
+        width: 163
+        height: 261
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1918030ecf91c4e50800000000000000
-      internalID: 6794834511678964113
+      spriteID: 4ea3de1010d405ab0800000000000000
+      internalID: -5021428917795472668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down_4
+      name: walk_south_4
       rect:
         serializedVersion: 2
-        x: 271
-        y: 0
-        width: 34
-        height: 55
+        x: 1178
+        y: 16
+        width: 161
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2fdb64ddce2463fb0800000000000000
-      internalID: -4668470378630824462
+      spriteID: 1fd3ea31440549540800000000000000
+      internalID: 5013720538488389105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Down_5
+      name: walk_south_5
       rect:
         serializedVersion: 2
-        x: 335
-        y: 0
-        width: 34
-        height: 56
+        x: 1449
+        y: 16
+        width: 162
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +249,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3434d63243f4b30d0800000000000000
-      internalID: -3442070404843355325
+      spriteID: d26f24d6cc9592650800000000000000
+      internalID: 6208592295848244781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_south_6
+      rect:
+        serializedVersion: 2
+        x: 1721
+        y: 16
+        width: 159
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f301a25f6ac9090800000000000000
+      internalID: -8026356863978160267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_south_7
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 24
+        width: 162
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c2345682bee42780800000000000000
+      internalID: -8708573328902442304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_south_8
+      rect:
+        serializedVersion: 2
+        x: 2303
+        y: 20
+        width: 156
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b78ff8567dffa60800000000000000
+      internalID: 7710117918288673644
       vertices: []
       indices: 
       edges: []
@@ -260,12 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Down_0: 2912147235762990277
-      Down_1: -5137298145869693822
-      Down_2: 2213548795106296147
-      Down_3: 6794834511678964113
-      Down_4: -4668470378630824462
-      Down_5: -3442070404843355325
+      walk_south_0: -6469403663279107466
+      walk_south_1: -4520308287001561092
+      walk_south_2: -3996048704862621271
+      walk_south_3: -5021428917795472668
+      walk_south_4: 5013720538488389105
+      walk_south_5: 6208592295848244781
+      walk_south_6: -8026356863978160267
+      walk_south_7: -8708573328902442304
+      walk_south_8: 7710117918288673644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
