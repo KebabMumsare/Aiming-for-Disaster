@@ -512,6 +512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standard Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 9206361993311863211, guid: 115ed1d6059238444ad3cee94f0c1613, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1743,6 +1747,14 @@ PrefabInstance:
       propertyPath: playerXP
       value: 
       objectReference: {fileID: 2135263369}
+    - target: {fileID: 6174391120937440787, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: m_margin.w
+      value: 18.753296
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174391120937440787, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: m_margin.z
+      value: 105.184326
+      objectReference: {fileID: 0}
     - target: {fileID: 7318750295122687891, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: health
       value: 
@@ -2239,6 +2251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brute Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8541813877594911682, guid: c806e067575206d45a880f8362b6cfc0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2381,6 +2397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3917524929629472780, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3927462600791188075, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
       propertyPath: 'targets.Array.data[0]'
       value: 
@@ -2391,7 +2411,7 @@ PrefabInstance:
       objectReference: {fileID: 282588300}
     - target: {fileID: 6904471319498042341, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.715027
+      value: 11.284973
       objectReference: {fileID: 0}
     - target: {fileID: 6904471319498042341, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2497,6 +2517,10 @@ PrefabInstance:
     - target: {fileID: 8541813877594911682, guid: c806e067575206d45a880f8362b6cfc0, type: 3}
       propertyPath: m_Name
       value: Brute Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541813877594911682, guid: c806e067575206d45a880f8362b6cfc0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
