@@ -90,7 +90,7 @@ public class Health : MonoBehaviour
         // Check if the object colliding with is an enemy or lootbox
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "LootBox")
         {
-            TakeDamage(other.gameObject.GetComponent<Damage>().GetDamage());
+            TakeDamage(other.gameObject.GetComponent<Damage>().GetDamage(), other.gameObject.tag);
         }
     }
 }
