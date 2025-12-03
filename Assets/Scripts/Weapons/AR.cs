@@ -9,7 +9,7 @@ public class AR : Weapon
     {
         weaponName = "AR";
         damage = GetComponent<Damage>();
-        attackSpeed = 0.1f;
+        attackSpeed = attackSpeed; // fetches the attack speed from the Weapon.cs
         attackCooldown = 0f;
         attackCollider = GetComponent<BoxCollider2D>();
         weaponVisual.enabled = false;
