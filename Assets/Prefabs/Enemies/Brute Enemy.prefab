@@ -408,9 +408,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 0}
   detectionRange: 5
-  xpReward: 25000
+  xpReward: 80
   bulletsReward: 10
-  magazinesReward: 1
+  magazinesReward: 2
 --- !u!114 &267635044131732112
 MonoBehaviour:
   m_ObjectHideFlags: 0

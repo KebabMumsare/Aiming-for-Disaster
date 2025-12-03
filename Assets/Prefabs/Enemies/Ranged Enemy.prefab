@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3927462600791188075}
   - component: {fileID: 6142084591433995440}
   - component: {fileID: 8349446150571547683}
+  - component: {fileID: 2723051429687763265}
   m_Layer: 0
   m_Name: Ranged Enemy
   m_TagString: Enemy
@@ -167,9 +168,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 0}
   detectionRange: 10
-  xpReward: 10
-  bulletsReward: 10
-  magazinesReward: 1
+  xpReward: 25
+  bulletsReward: 4
+  magazinesReward: 2
   projectilePrefab: {fileID: 2074973746105568760, guid: 348748dff0ae1ae43b52aa6bdba64442, type: 3}
   attackRange: 12
   keepDistance: 6
@@ -322,6 +323,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &2723051429687763265
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917524929629472780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92aa2e5e6768e37438fb2212f66e0e1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4487777269359524880
 GameObject:
   m_ObjectHideFlags: 0
