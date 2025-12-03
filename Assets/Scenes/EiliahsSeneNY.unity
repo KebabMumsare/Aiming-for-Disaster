@@ -998,22 +998,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6501073373101885827, guid: a316afa6c43fe0249901370671c5ba08, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5468991
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501073373101885827, guid: a316afa6c43fe0249901370671c5ba08, type: 3}
-      propertyPath: m_Size.y
-      value: 1.1836214
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501073373101885827, guid: a316afa6c43fe0249901370671c5ba08, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0068365335
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501073373101885827, guid: a316afa6c43fe0249901370671c5ba08, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.00000023841858
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1212,14 +1196,6 @@ PrefabInstance:
     - target: {fileID: 1202856531029785423, guid: 892353c753da72f499595273ee62af4b, type: 3}
       propertyPath: m_Name
       value: ARItem
-      objectReference: {fileID: 0}
-    - target: {fileID: 8469143604467598753, guid: 892353c753da72f499595273ee62af4b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8469143604467598753, guid: 892353c753da72f499595273ee62af4b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8469143604467598753, guid: 892353c753da72f499595273ee62af4b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2017,38 +1993,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1759974965 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9206361993311863211, guid: 4275d5d265f78704484b2e376c0095c2, type: 3}
-  m_PrefabInstance: {fileID: 2179347496592138604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1759974966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 616296992411014559, guid: 4275d5d265f78704484b2e376c0095c2, type: 3}
   m_PrefabInstance: {fileID: 2179347496592138604}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1759974978
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759974965}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 813692146a915984fa2958c264f85141, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1779105227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2678,14 +2627,6 @@ PrefabInstance:
       value: ShotgunItem
       objectReference: {fileID: 0}
     - target: {fileID: 9141139981351049138, guid: 3396668640df6734aab3c643f6e29f68, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9141139981351049138, guid: 3396668640df6734aab3c643f6e29f68, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9141139981351049138, guid: 3396668640df6734aab3c643f6e29f68, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
       objectReference: {fileID: 0}
@@ -2856,10 +2797,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6379713445188815313, guid: 4275d5d265f78704484b2e376c0095c2, type: 3}
-      propertyPath: maxSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 9206361993311863211, guid: 4275d5d265f78704484b2e376c0095c2, type: 3}
       propertyPath: m_Name
       value: Mini Enemy
@@ -2867,10 +2804,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9206361993311863211, guid: 4275d5d265f78704484b2e376c0095c2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1759974978}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4275d5d265f78704484b2e376c0095c2, type: 3}
 --- !u!1001 &2904034434878210590
 PrefabInstance:
