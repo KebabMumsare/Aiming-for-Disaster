@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     public Item item;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
+    public GameObject pickupPrefab;
     public GameObject skillTreeUI;
     [SerializeField] private InventoryItemDetailsUI itemDetailsUI;
 
@@ -109,6 +110,12 @@ public class InventoryManager : MonoBehaviour
                 health.Heal(healAmount);
                 UpdateSelectedItemDetails(selectedSlot);
             }
+        }
+
+        // Check for drop item input
+        if (playerInput.DropItemPressed && !IsInventoryOpen)
+        {
+            DropItem();
         }
 
         // Check for number key input to change selected slot
@@ -406,6 +413,37 @@ public class InventoryManager : MonoBehaviour
                 {
                     weapon.SetDamageMultiplier(damageMultiplier);
                 }
+            }
+        }
+    }
+
+    public void DropItem()
+    {
+        Item itemToDrop = GetSelectedItem(false);
+        if (itemToDrop != null)
+        {
+            // Remove one item from inventory
+            GetSelectedItem(true);
+
+            // Instantiate pickup
+            if (pickupPrefab != null && health != null)
+            {
+                // Start at player position
+                Vector3 spawnPosition = health.transform.position;
+                // Target position (to the right)
+                Vector3 targetPosition = health.transform.position + new Vector3(1.5f, 0f, 0f); 
+
+                GameObject droppedItem = Instantiate(pickupPrefab, spawnPosition, Quaternion.identity);
+                PickupItem pickupScript = droppedItem.GetComponent<PickupItem>();
+                if (pickupScript != null)
+                {
+                    pickupScript.SetItem(itemToDrop);
+                    pickupScript.AnimateDrop(targetPosition);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("PickupPrefab or Health not assigned in InventoryManager.");
             }
         }
     }
