@@ -15,11 +15,17 @@ public class EnemyBehaviorController : MonoBehaviour
     protected bool isChasing = false;
     protected Transform playerTransform;
 
+    protected Animator animator;
+
+    private const string _horizontal = "Horizontal";
+    private const string _vertical = "Vertical";
+
     protected virtual void Start()
     {
         destinationSetter = GetComponent<AIDestinationSetter>();
         patrol = GetComponent<Patrol>();
         ai = GetComponent<IAstarAI>();
+        animator = GetComponent<Animator>();
 
         // Check if required components exist
         if (destinationSetter == null)
@@ -88,6 +94,14 @@ public class EnemyBehaviorController : MonoBehaviour
             {
                 patrol.enabled = true;
             }
+        }
+
+        // Update Animator
+        if (animator != null && ai != null)
+        {
+            Vector3 velocity = ai.velocity;
+            animator.SetFloat(_horizontal, velocity.x);
+            animator.SetFloat(_vertical, velocity.y);
         }
     }
 }

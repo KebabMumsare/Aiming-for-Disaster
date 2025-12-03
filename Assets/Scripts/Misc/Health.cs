@@ -34,8 +34,6 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage, string sourceTag = "")
     {
-        // ignore damage if this object is immortal
-        if (isImmortal) return;
 
         // prevent enemies from damaging other enemies
         if (CompareTag("Enemy") && string.Equals(sourceTag, "Enemy", StringComparison.OrdinalIgnoreCase))

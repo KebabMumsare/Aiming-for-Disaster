@@ -512,14 +512,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standard Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 9206361993311863211, guid: 115ed1d6059238444ad3cee94f0c1613, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9206361993311863211, guid: 115ed1d6059238444ad3cee94f0c1613, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1868538531}
   m_SourcePrefab: {fileID: 100100000, guid: 115ed1d6059238444ad3cee94f0c1613, type: 3}
 --- !u!4 &779950299 stripped
 Transform:
@@ -686,6 +685,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &859863031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3917524929629472780, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
+  m_PrefabInstance: {fileID: 1933203532254658397}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &859863033
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859863031}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92aa2e5e6768e37438fb2212f66e0e1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &875484808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +2032,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1035738022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1868538519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206361993311863211, guid: 115ed1d6059238444ad3cee94f0c1613, type: 3}
+  m_PrefabInstance: {fileID: 759423755}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1868538531
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868538519}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d17f1b2a0f90a7c4891f2443e435a849, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1890327185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9103053421805834486, guid: b3d3015b200d31b4dbaff55003dc4f13, type: 3}
@@ -2397,10 +2450,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3917524929629472780, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3927462600791188075, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
       propertyPath: 'targets.Array.data[0]'
       value: 
@@ -2452,7 +2501,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3917524929629472780, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 859863033}
   m_SourcePrefab: {fileID: 100100000, guid: 79277a95e2924154585efde5393a6e1a, type: 3}
 --- !u!1001 &2904034434878210590
 PrefabInstance:
@@ -2517,10 +2569,6 @@ PrefabInstance:
     - target: {fileID: 8541813877594911682, guid: c806e067575206d45a880f8362b6cfc0, type: 3}
       propertyPath: m_Name
       value: Brute Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541813877594911682, guid: c806e067575206d45a880f8362b6cfc0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
