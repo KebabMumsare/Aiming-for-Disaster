@@ -9,7 +9,7 @@ public class Shotgun : Weapon
     {
         weaponName = "Shotgun";
         damage = GetComponent<Damage>();
-        attackSpeed = 0.5f;
+        attackSpeed = attackSpeed;
         attackCooldown = 1f;
         attackCollider = GetComponent<BoxCollider2D>();
         //weaponVisual.enabled = false;

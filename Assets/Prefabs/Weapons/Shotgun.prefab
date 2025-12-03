@@ -50,7 +50,7 @@ MonoBehaviour:
   weaponName: Shotgun
   damage: {fileID: 0}
   attackSpeed: 1
-  attackCooldown: 2
+  attackCooldown: 0
   attackCollider: {fileID: 5484509743732781606}
   enemyLayer:
     serializedVersion: 2

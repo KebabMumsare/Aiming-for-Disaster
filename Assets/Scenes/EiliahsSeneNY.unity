@@ -1555,10 +1555,6 @@ PrefabInstance:
       propertyPath: WeaponPivot
       value: 
       objectReference: {fileID: 1165413939}
-    - target: {fileID: 1808504064395772372, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3298898117109194395, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1711,10 +1707,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5184328130094510542, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5671176236522340157, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1743,14 +1735,6 @@ PrefabInstance:
       propertyPath: playerXP
       value: 
       objectReference: {fileID: 2135263369}
-    - target: {fileID: 6174391120937440787, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
-      propertyPath: m_margin.w
-      value: 18.753296
-      objectReference: {fileID: 0}
-    - target: {fileID: 6174391120937440787, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
-      propertyPath: m_margin.z
-      value: 105.184326
-      objectReference: {fileID: 0}
     - target: {fileID: 7318750295122687891, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: health
       value: 
@@ -1782,10 +1766,6 @@ PrefabInstance:
     - target: {fileID: 7390509089552625513, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7484459964521755536, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8897290712970502077, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1867,18 +1847,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2520201684506525598, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.5943396
-      objectReference: {fileID: 0}
-    - target: {fileID: 2520201684506525598, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.5943396
-      objectReference: {fileID: 0}
-    - target: {fileID: 2520201684506525598, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.5943396
-      objectReference: {fileID: 0}
     - target: {fileID: 3508381982931009094, guid: 3990e82cf729583468f66b452587db35, type: 3}
       propertyPath: currentBulletsText
       value: 
@@ -1887,22 +1855,6 @@ PrefabInstance:
       propertyPath: currentMagazinesText
       value: 
       objectReference: {fileID: 815656911}
-    - target: {fileID: 4165944596709711786, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165944596709711786, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.6826172
-      objectReference: {fileID: 0}
-    - target: {fileID: 6089064670598731447, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6089064670598731447, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6089064670598731447, guid: 3990e82cf729583468f66b452587db35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1943,10 +1895,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6270734587782663092, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7078835461182821392, guid: 3990e82cf729583468f66b452587db35, type: 3}
       propertyPath: xpText
       value: 
@@ -1959,17 +1907,10 @@ PrefabInstance:
       propertyPath: skillPointsText
       value: 
       objectReference: {fileID: 1175592045}
-    - target: {fileID: 8462435163113099591, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2912147235762990277, guid: b3ab11d99f05e4141bdd0e3d6956c362, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 666455889893017808, guid: 3990e82cf729583468f66b452587db35, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2135263384}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3990e82cf729583468f66b452587db35, type: 3}
 --- !u!1 &1783330913
 GameObject:
@@ -2285,28 +2226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40da730aafdbcbb48800b72bde9361b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2135263384
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640237760}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 88f4ce23677ddea4d863bb34a66953af, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1903857511569949989
 PrefabInstance:
   m_ObjectHideFlags: 0

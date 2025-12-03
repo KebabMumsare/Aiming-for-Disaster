@@ -22,7 +22,7 @@ public class Pistol : Weapon
     {
         weaponName = "Pistol";
         damage = GetComponent<Damage>();
-        attackSpeed = 0.3f;
+        attackSpeed = attackSpeed;
         attackCooldown = 0f;
         attackCollider = GetComponent<CircleCollider2D>();
         weaponCollider.enabled = false;
