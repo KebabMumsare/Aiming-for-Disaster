@@ -74,6 +74,16 @@ public class InventoryItemDetailsUI : MonoBehaviour
             builder.AppendLine($"Heal: {item.healAmount} HP");
         }
 
+        if (item.passiveBuffs != null)
+        {
+            foreach (var buff in item.passiveBuffs)
+            {
+                float percentage = buff.value * 100f;
+                string sign = buff.value > 0 ? "+" : "";
+                builder.AppendLine($"{buff.statType}: {sign}{percentage:0}%");
+            }
+        }
+
         if (builder.Length == 0)
         {
             builder.Append(string.Empty);
