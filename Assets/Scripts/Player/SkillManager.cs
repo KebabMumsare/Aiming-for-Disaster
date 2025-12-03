@@ -71,7 +71,7 @@ public class SkillManager : MonoBehaviour
         // For now, I will add a public method to PlayerMover2D or make moveSpeed public.
         // Let's assume I will add SetMoveSpeedMultiplier or similar.
         float multiplier = 1f + (speedLevel * speedMultiplierPerLevel);
-        playerMover.SetSpeedMultiplier(multiplier);
+        playerMover.SetSkillSpeedMultiplier(multiplier);
     }
 
     private void ApplyHealthUpgrade()

@@ -369,18 +369,20 @@ public class InventoryManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.item != null && itemInSlot.item.passiveBuffs != null)
             {
+                if (itemInSlot.count <= 0) continue; // Ignore items being removed
+
                 foreach (var buff in itemInSlot.item.passiveBuffs)
                 {
                     switch (buff.statType)
                     {
                         case StatType.MoveSpeed:
-                            moveSpeedMultiplier += buff.value;
+                            moveSpeedMultiplier += buff.value * itemInSlot.count;
                             break;
                         case StatType.Damage:
-                            damageMultiplier += buff.value;
+                            damageMultiplier += buff.value * itemInSlot.count;
                             break;
                         case StatType.XP:
-                            xpMultiplier += buff.value;
+                            xpMultiplier += buff.value * itemInSlot.count;
                             break;
                     }
                 }
@@ -393,7 +395,7 @@ public class InventoryManager : MonoBehaviour
             var playerMover = health.GetComponent<PlayerMover2D>();
             if (playerMover != null)
             {
-                playerMover.SetSpeedMultiplier(moveSpeedMultiplier);
+                playerMover.SetItemSpeedMultiplier(moveSpeedMultiplier);
             }
             
             var playerXP = health.GetComponent<PlayerXP>();
