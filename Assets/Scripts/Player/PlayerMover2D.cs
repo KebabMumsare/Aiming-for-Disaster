@@ -45,9 +45,26 @@ public class PlayerMover2D : MonoBehaviour
         _animator.SetFloat(_vertical, moveInput.y);
     }
 
-    public void SetSpeedMultiplier(float multiplier)
+    private float skillMultiplier = 1f;
+    private float itemMultiplier = 1f;
+
+    public void SetItemSpeedMultiplier(float multiplier)
     {
-        moveSpeed = baseMoveSpeed * multiplier;
+        itemMultiplier = multiplier;
+        UpdateMoveSpeed();
+    }
+
+    public void SetSkillSpeedMultiplier(float multiplier)
+    {
+        skillMultiplier = multiplier;
+        UpdateMoveSpeed();
+    }
+
+    private void UpdateMoveSpeed()
+    {
+        // Additive scaling: Base + (Base * (Skill - 1)) + (Base * (Item - 1))
+        // Simplified: Base * (Skill + Item - 1)
+        moveSpeed = baseMoveSpeed * (skillMultiplier + itemMultiplier - 1f);
     }
 
     public float CurrentMoveSpeed => moveSpeed;
