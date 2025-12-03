@@ -1847,6 +1847,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2520201684506525598, guid: 3990e82cf729583468f66b452587db35, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.40392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520201684506525598, guid: 3990e82cf729583468f66b452587db35, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520201684506525598, guid: 3990e82cf729583468f66b452587db35, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.90588236
+      objectReference: {fileID: 0}
     - target: {fileID: 3508381982931009094, guid: 3990e82cf729583468f66b452587db35, type: 3}
       propertyPath: currentBulletsText
       value: 
@@ -1893,6 +1905,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089064670598731447, guid: 3990e82cf729583468f66b452587db35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270734587782663092, guid: 3990e82cf729583468f66b452587db35, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7078835461182821392, guid: 3990e82cf729583468f66b452587db35, type: 3}

@@ -9,6 +9,7 @@ public class PlayerInputRouter : MonoBehaviour
     public bool AttackPressed { get; private set; }
     public bool UseItemPressed { get; private set; }
     public bool OpenInventoryPressed { get; private set; }
+    public bool DropItemPressed { get; private set; }
 
     PlayerInputActions actions;
 
@@ -31,6 +32,7 @@ public class PlayerInputRouter : MonoBehaviour
 
         actions.Player.UseItem.performed += OnUseItem;
         actions.Player.OpenInventory.performed += OnOpenInventory;
+        actions.Player.DropItem.performed += OnDropItem;
     }
 
     void OnDisable()
@@ -46,6 +48,7 @@ public class PlayerInputRouter : MonoBehaviour
 
         actions.Player.UseItem.performed -= OnUseItem;
         actions.Player.OpenInventory.performed -= OnOpenInventory;
+        actions.Player.DropItem.performed -= OnDropItem;
 
         actions.Player.Disable();
     }
@@ -55,6 +58,7 @@ public class PlayerInputRouter : MonoBehaviour
     {
         UseItemPressed = false;
         OpenInventoryPressed = false;
+        DropItemPressed = false;
     }
 
     void OnMove(InputAction.CallbackContext ctx)
@@ -80,5 +84,10 @@ public class PlayerInputRouter : MonoBehaviour
     void OnOpenInventory(InputAction.CallbackContext ctx)
     {
         OpenInventoryPressed = true;
+    }
+
+    void OnDropItem(InputAction.CallbackContext ctx)
+    {
+        DropItemPressed = true;
     }
 }
