@@ -47,6 +47,11 @@ public class InventoryManager : MonoBehaviour
             Debug.LogError("Player health is not assigned. Assign it on the InventoryManager");
         }
 
+        if (pickupPrefab == null)
+        {
+            Debug.LogError("PickupPrefab is not assigned. Assign the 'PickupItemPrefab' prefab on the InventoryManager");
+        }
+
         if (skillManager == null)
         {
              // Try to find it on the player (assuming health is on the player)
