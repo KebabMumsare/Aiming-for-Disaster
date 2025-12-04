@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  isImmortal: 0
+  isImmortal: 1
 --- !u!114 &7078835461182821392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,9 +193,9 @@ MonoBehaviour:
   currentLevel: 1
   xpToNextLevel: 100
   skillPoints: 1
-  xpText: {fileID: 0}
-  levelText: {fileID: 0}
-  skillPointsText: {fileID: 0}
+  xpText: {fileID: 1166491059574715058}
+  levelText: {fileID: 1388219687784696313}
+  skillPointsText: {fileID: 8783057344681440494}
 --- !u!114 &4678513410851589525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentBullets: 0
   currentMagazines: 0
-  currentBulletsText: {fileID: 0}
-  currentMagazinesText: {fileID: 0}
+  currentBulletsText: {fileID: 5682350215452993612}
+  currentMagazinesText: {fileID: 4105320739129313362}
 --- !u!95 &4800145823480216990
 Animator:
   serializedVersion: 7
@@ -664,6 +664,14 @@ PrefabInstance:
       propertyPath: WeaponPivot
       value: 
       objectReference: {fileID: 8612946454471599437}
+    - target: {fileID: 666930039371833726, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: playerXP
+      value: 
+      objectReference: {fileID: 7078835461182821392}
+    - target: {fileID: 666930039371833726, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+      propertyPath: skillManager
+      value: 
+      objectReference: {fileID: 4678513410851589525}
     - target: {fileID: 1390674807562293283, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
       propertyPath: m_Name
       value: UI
@@ -950,3 +958,58 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4436618745638776802, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
   m_PrefabInstance: {fileID: 4233896224062449666}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1166491059574715058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3094508815069125296, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+  m_PrefabInstance: {fileID: 4233896224062449666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1388219687784696313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2990988683974304251, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+  m_PrefabInstance: {fileID: 4233896224062449666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4105320739129313362 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 160112365466345552, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+  m_PrefabInstance: {fileID: 4233896224062449666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5682350215452993612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8366018246422069326, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+  m_PrefabInstance: {fileID: 4233896224062449666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8783057344681440494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4837536915773414636, guid: 2f13b0bd62bf5cd49832bd7b35dab1e9, type: 3}
+  m_PrefabInstance: {fileID: 4233896224062449666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

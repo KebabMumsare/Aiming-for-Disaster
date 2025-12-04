@@ -33,6 +33,7 @@ public class SkillTreeUI : MonoBehaviour
     {
         if (skillManager == null)
         {
+            Debug.LogWarning("SkillManager is not assigned. Assign 'Player' on the SkillTreeUI");
             // Try to find on player
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)

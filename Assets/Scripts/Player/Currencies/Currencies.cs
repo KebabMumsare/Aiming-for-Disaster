@@ -13,6 +13,11 @@ public class Currencies : MonoBehaviour
     
     void Start()
     {
+        if (currentBulletsText == null || currentMagazinesText == null)
+        {
+            Debug.LogError("Bullets or magazines text are not assigned. Assign them on the 'Player'");
+            return;
+        }
     
     }
 

@@ -21,15 +21,16 @@ public class PlayerXP : MonoBehaviour
     
     void Start()
     {
-        levelText.text = "LVL:" + currentLevel;
-        skillPointsText.text = "SP:" + skillPoints;
-        xpText.text = "XP: " + currentXP + " / " + xpToNextLevel;
-        
         // check if levelText, skillPointsText and xpText are assigned
         if (levelText == null || skillPointsText == null || xpText == null)
         {
             Debug.LogError("LevelText or SkillPointsText or XPText is not assigned. Assign them on the Player");
+            return;
         }
+
+        levelText.text = "LVL:" + currentLevel;
+        skillPointsText.text = "SP:" + skillPoints;
+        xpText.text = "XP: " + currentXP + " / " + xpToNextLevel;
     }
 
     public void AddXP(float xp) // Add XP - Used in EnemyBehaviorController
