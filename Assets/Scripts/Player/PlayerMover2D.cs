@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// Applies movement using the values read by PlayerInputRouter.
-[RequireComponent(typeof(BoxCollider2D), typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D), typeof(Rigidbody2D))]
 public class PlayerMover2D : MonoBehaviour
 {
     [SerializeField] PlayerInputRouter inputRouter;
