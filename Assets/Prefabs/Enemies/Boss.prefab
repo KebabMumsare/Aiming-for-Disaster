@@ -65,7 +65,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b26161fdb363d71469800948341fd868, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 400
   currentHealth: 0
+  isImmortal: 0
 --- !u!114 &6743063086457740329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +314,8 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   detectionRange: 20
   xpReward: 10
+  bulletsReward: 10
+  magazinesReward: 1
   health: {fileID: 857460820120247195}
   projectilePrefab: {fileID: 2074973746105568760, guid: 348748dff0ae1ae43b52aa6bdba64442, type: 3}
   attackRange: 8
