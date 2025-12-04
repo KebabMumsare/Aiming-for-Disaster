@@ -19,7 +19,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 0}
   stackable: 0
   maxStack: 0
-  image: {fileID: -9144069051318328055, guid: 2a074b3b141f32f4e8abeb83cb9e231f, type: 3}
+  image: {fileID: 6095769340417521577, guid: b77342e1883ccd94983f6bd49ddd47a5, type: 3}
   healAmount: 0
   passiveBuffs:
   - statType: 2
