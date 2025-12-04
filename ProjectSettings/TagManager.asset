@@ -13,8 +13,9 @@ TagManager:
   - Door_Right_Open
   - Closed_Door
   - LootBox
-  - FloorTile
   - SpawnPoint
+  - FloorTiles
+  - FloorTile
   layers:
   - Default
   - TransparentFX
