@@ -12,8 +12,8 @@ public class LootBox : MonoBehaviour
 
     [Header("Loot Box Settings")]
     public int lootBoxTier;
-    public int minLootAmount = 2;
-    public int maxLootAmount = 5;
+    public int minLootAmount;
+    public int maxLootAmount;
     public LootPools lootPools;
 
     private int lootAmount;

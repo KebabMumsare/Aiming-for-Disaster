@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9103053421805834486}
   - component: {fileID: 7825172196983032497}
   - component: {fileID: 664158165945717285}
-  - component: {fileID: 7758408416212292319}
+  - component: {fileID: 300912922897060498}
   m_Layer: 0
   m_Name: BulletItem
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 0, z: 8.4139595}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletValue: 1
   magazineValue: 0
---- !u!70 &7758408416212292319
-CapsuleCollider2D:
+--- !u!61 &300912922897060498
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -137,6 +137,15 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.015657188, y: 0.00000011734282}
-  m_Size: {x: 1.214507, y: 0.5056117}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96875, y: 0.3125}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.96875, y: 0.3125}
+  m_EdgeRadius: 0

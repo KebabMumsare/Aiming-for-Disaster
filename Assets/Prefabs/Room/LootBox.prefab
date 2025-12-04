@@ -277,8 +277,8 @@ MonoBehaviour:
   closedLootBoxSpriteRenderer: {fileID: 3344985435204585137}
   openedLootBoxSpriteRenderer: {fileID: 8789775823408100086}
   lootBoxTier: 0
-  minLootAmount: 2
-  maxLootAmount: 5
+  minLootAmount: 4
+  maxLootAmount: 6
   lootPools: {fileID: 8249679186981385931}
   lootEjectDistance: 3
   lootEjectDuration: 0.5
@@ -313,14 +313,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tier0Loot:
+  - itemPrefab: {fileID: 4127531097467918210, guid: b3d3015b200d31b4dbaff55003dc4f13, type: 3}
+    weight: 210
   - itemPrefab: {fileID: 4008388784714170287, guid: b22c86aaaf9081241963fc4a2ca970c8, type: 3}
-    weight: 20
+    weight: 10
   - itemPrefab: {fileID: 1202856531029785423, guid: 892353c753da72f499595273ee62af4b, type: 3}
     weight: 10
   - itemPrefab: {fileID: 5830894730708647990, guid: 3396668640df6734aab3c643f6e29f68, type: 3}
     weight: 10
   - itemPrefab: {fileID: 1801113043812378614, guid: a316afa6c43fe0249901370671c5ba08, type: 3}
     weight: 5
+  - itemPrefab: {fileID: 8423221089134019674, guid: 5f76c47b0b2c64f4d8925cd26458659c, type: 3}
+    weight: 5
+  - itemPrefab: {fileID: 6563710503016904218, guid: d59a8348303b37746820e8a115f0a11d, type: 3}
+    weight: 2
+  - itemPrefab: {fileID: 5467722669851473824, guid: 3db8b466d1e9ad648bbd9a9d14a49a54, type: 3}
+    weight: 2
+  - itemPrefab: {fileID: 2079524359877513194, guid: 31ac10c94d4978b4ca38e3f355f0385a, type: 3}
+    weight: 2
 --- !u!1001 &2610853529976849088
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -61,5 +61,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootBoxPrefab: {fileID: 1422848156136698088, guid: bbfd704b0791c244b85ef51d5f92907e, type: 3}
-  minLootBoxes: 1
-  maxLootBoxes: 4
+  minLootBoxes: 3
+  maxLootBoxes: 6
