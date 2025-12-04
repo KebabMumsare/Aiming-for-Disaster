@@ -74,6 +74,15 @@ public class InventoryItemDetailsUI : MonoBehaviour
             builder.AppendLine($"Heal: {item.healAmount} HP");
         }
 
+        if (item.weaponPrefab != null)
+        {
+            Damage damageComponent = item.weaponPrefab.GetComponent<Damage>();
+            if (damageComponent != null)
+            {
+                builder.AppendLine($"Damage: {damageComponent.GetDamage()}");
+            }
+        }
+
         if (item.passiveBuffs != null)
         {
             foreach (var buff in item.passiveBuffs)
