@@ -6,7 +6,7 @@ public class PlayerXP : MonoBehaviour
 {
     public float currentXP = 0f;
     public float currentLevel = 1f;
-    public float xpToNextLevel = 100f;
+    [HideInInspector] public float xpToNextLevel = 100f;
     public int skillPoints = 1;
     public TextMeshProUGUI xpText;
     public TextMeshProUGUI levelText;

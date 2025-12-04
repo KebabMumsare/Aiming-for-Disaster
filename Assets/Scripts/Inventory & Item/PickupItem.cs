@@ -6,7 +6,7 @@ public class PickupItem : MonoBehaviour
     public InventoryManager inventoryManager;
 
     private float spawnTime;
-    [SerializeField] private float pickupDelay = 1.0f;
+    private float pickupDelay = 1.0f;
 
     void Awake()
     {
