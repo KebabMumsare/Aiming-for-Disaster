@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToPickup: {fileID: 11400000, guid: 54b9b4340d7aa5c409f3a31a5905e6e3, type: 2}
   inventoryManager: {fileID: 0}
+  pickupDelay: 1
 --- !u!61 &911350749382032957
 BoxCollider2D:
   m_ObjectHideFlags: 0
