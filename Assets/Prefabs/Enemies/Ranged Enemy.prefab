@@ -176,6 +176,9 @@ MonoBehaviour:
   keepDistance: 6
   fireRate: 0.5
   projectileSpeed: 10
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
   firePoint: {fileID: 0}
 --- !u!114 &1854988223070077757
 MonoBehaviour:

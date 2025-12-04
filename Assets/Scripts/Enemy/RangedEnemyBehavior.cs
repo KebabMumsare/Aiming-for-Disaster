@@ -9,22 +9,17 @@ public class RangedEnemyBehavior : EnemyBehaviorController
     public float keepDistance = 6f;
     public float fireRate = 2f;
     public float projectileSpeed = 10f;
+    public LayerMask obstacleLayer;
     public Transform firePoint; // Optional: specific point to fire from
 
     private float nextFireTime;
-
-    protected override void Start()
-    {
-        base.Start();
-        // Ensure we don't use the default destination setter logic from base if we want custom movement
-        // But base.Start() sets it up. We will override the behavior in Update.
-    }
 
     protected override void Update()
     {
         if (playerTransform == null) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        bool hasLineOfSight = HasLineOfSight();
 
         // Movement Logic
         if (distanceToPlayer <= detectionRange)
@@ -58,19 +53,11 @@ public class RangedEnemyBehavior : EnemyBehaviorController
             }
 
             // Attack Logic
-            if (distanceToPlayer <= attackRange)
+            if (distanceToPlayer <= attackRange && hasLineOfSight)
             {
                 // Rotate towards player to shoot
                 // Simple 2D rotation
                 Vector3 diff = playerTransform.position - transform.position;
-                diff.Normalize();
-                float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-                // Adjust -90 if sprite is facing up, or 0 if right. Assuming Up for top-down usually requires -90 adjustment if sprite is Up.
-                // Let's assume standard rotation for now, user can adjust.
-                // transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90); 
-                
-                // Actually, let's just rely on the projectile direction for now or let A* handle rotation if enabled.
-                // But for shooting we need to aim.
                 
                 if (Time.time >= nextFireTime)
                 {
@@ -90,6 +77,21 @@ public class RangedEnemyBehavior : EnemyBehaviorController
             }
         }
     }
+
+    private bool HasLineOfSight()
+    {
+        if (playerTransform == null) return false;
+
+        Vector3 origin = firePoint != null ? firePoint.position : transform.position;
+        Vector3 direction = (playerTransform.position - origin).normalized;
+        float distance = Vector3.Distance(origin, playerTransform.position);
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, obstacleLayer);
+
+        // If we hit something in the obstacle layer, we don't have line of sight
+        return hit.collider == null;
+    }
+
 
     void Shoot(Vector3 direction)
     {
