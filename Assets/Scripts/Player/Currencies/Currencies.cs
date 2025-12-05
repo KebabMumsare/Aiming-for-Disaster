@@ -24,12 +24,50 @@ public class Currencies : MonoBehaviour
     public void AddBullets(float bullets) // Add bullets - Used in EnemyBehaviorController
     {
         currentBullets += bullets;
-        currentBulletsText.text = "Bullets:" + currentBullets;
+        UpdateBulletsUI();
     }
 
     public void AddMagazines(float magazines) // Add magazines - Used in EnemyBehaviorController
     {
         currentMagazines += magazines;
-        currentMagazinesText.text = "Mags:" + currentMagazines;
+        UpdateMagazinesUI();
+    }
+
+    public bool SpendBullets(float bullets) // Deduct bullets if player has enough
+    {
+        if (currentBullets >= bullets)
+        {
+            currentBullets -= bullets;
+            UpdateBulletsUI();
+            return true;
+        }
+        return false;
+    }
+
+    public bool SpendMagazines(float magazines) // Deduct magazines if player has enough
+    {
+        if (currentMagazines >= magazines)
+        {
+            currentMagazines -= magazines;
+            UpdateMagazinesUI();
+            return true;
+        }
+        return false;
+    }
+
+    private void UpdateBulletsUI()
+    {
+        if (currentBulletsText != null)
+        {
+            currentBulletsText.text = "Bullets:" + currentBullets;
+        }
+    }
+
+    private void UpdateMagazinesUI()
+    {
+        if (currentMagazinesText != null)
+        {
+            currentMagazinesText.text = "Mags:" + currentMagazines;
+        }
     }
 }
