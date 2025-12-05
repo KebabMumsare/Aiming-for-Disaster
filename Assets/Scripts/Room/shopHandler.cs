@@ -5,35 +5,14 @@ using TMPro;
 public class shopHandler : MonoBehaviour
 {
     public BoxCollider2D shopCollider;
-    public GameObject ShopPurchaseConfirmationUI;
     public GameObject shopItemPrefab;
 
+    private GameObject shopPurchaseConfirmationUI;
     private Button buyButton;
     private Currencies playerCurrencies;
     private string currentItem;
     private float currentPrice;
     private string currentCurrencyType; // "Bullets" or "Magazines"
-
-    private void Start()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            playerCurrencies = player.GetComponent<Currencies>();
-            if (playerCurrencies == null)
-            {
-                Debug.LogWarning("Currencies component not found on Player!");
-            }
-            else
-            {
-                Debug.Log("Player currencies found successfully!");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Player GameObject not found!");
-        }
-    }
 
     private void SetupBuyButton()
     {
@@ -43,10 +22,10 @@ public class shopHandler : MonoBehaviour
             return;
         }
 
-        if (ShopPurchaseConfirmationUI != null)
+        if (shopPurchaseConfirmationUI != null)
         {
             // Try to find the buy button
-            Transform buttonTransform = ShopPurchaseConfirmationUI.transform.Find("BuyButton");
+            Transform buttonTransform = shopPurchaseConfirmationUI.transform.Find("BuyButton");
             if (buttonTransform != null)
             {
                 buyButton = buttonTransform.GetComponent<Button>();
@@ -55,16 +34,7 @@ public class shopHandler : MonoBehaviour
                     // Remove any existing listeners to avoid duplicates
                     buyButton.onClick.RemoveAllListeners();
                     buyButton.onClick.AddListener(OnBuyButtonClicked);
-                    Debug.Log("Buy button found and listener attached!");
                 }
-                else
-                {
-                    Debug.LogWarning("BuyButton found but no Button component attached!");
-                }
-            }
-            else
-            {
-                Debug.LogWarning("BuyButton not found in ShopPurchaseConfirmationUI! Make sure the GameObject is named 'BuyButton'");
             }
         }
     }
@@ -73,6 +43,35 @@ public class shopHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Find the player's Currencies component
+            GameObject player = other.gameObject;
+            playerCurrencies = player.GetComponent<Currencies>();
+            if (playerCurrencies == null)
+            {
+                return;
+            }
+
+            // Find the ShopPurchaseConfirmationUI as a child of the player
+            Transform uiTransform = player.transform.Find("ShopPurchaseConfirmation");
+            if (uiTransform == null)
+            {
+                // Try searching in UI or Canvas
+                Canvas canvas = player.GetComponentInChildren<Canvas>();
+                if (canvas != null)
+                {
+                    uiTransform = canvas.transform.Find("ShopPurchaseConfirmation");
+                }
+            }
+
+            if (uiTransform != null)
+            {
+                shopPurchaseConfirmationUI = uiTransform.gameObject;
+            }
+            else
+            {
+                return;
+            }
+
             switch (gameObject.name)
             {
                 case "BootsPedestal":
@@ -90,9 +89,8 @@ public class shopHandler : MonoBehaviour
 
     private void OpenShopPurchaseConfirmationUI(string itemName)
     {
-        if (ShopPurchaseConfirmationUI == null)
+        if (shopPurchaseConfirmationUI == null)
         {
-            Debug.LogWarning("ShopPurchaseConfirmationUI is not assigned!");
             return;
         }
 
@@ -135,21 +133,15 @@ public class shopHandler : MonoBehaviour
             SetCurrencyImage("BuyButton/CurrencyImages/Bullet", true);
         }
 
-        ShopPurchaseConfirmationUI.SetActive(true);
+        shopPurchaseConfirmationUI.SetActive(true);
     }
 
     private void OnBuyButtonClicked()
     {
-        Debug.Log("Buy button clicked!");
-
         if (playerCurrencies == null)
         {
-            Debug.LogWarning("Player currencies not found!");
             return;
         }
-
-        Debug.Log($"Attempting to buy {currentItem} for {currentPrice} {currentCurrencyType}");
-        Debug.Log($"Current Bullets: {playerCurrencies.currentBullets}, Current Magazines: {playerCurrencies.currentMagazines}");
 
         bool purchaseSuccessful = false;
 
@@ -164,13 +156,8 @@ public class shopHandler : MonoBehaviour
 
         if (purchaseSuccessful)
         {
-            Debug.Log($"Successfully purchased {currentItem} for {currentPrice} {currentCurrencyType}!");
             DropItem(currentItem);
-            ShopPurchaseConfirmationUI.SetActive(false);
-        }
-        else
-        {
-            Debug.Log($"Not enough {currentCurrencyType}! Need {currentPrice}, but you don't have enough.");
+            shopPurchaseConfirmationUI.SetActive(false);
         }
     }
 
@@ -178,14 +165,12 @@ public class shopHandler : MonoBehaviour
     {
         if (shopItemPrefab == null)
         {
-            Debug.LogWarning($"Shop item prefab is not assigned on {gameObject.name}!");
             return;
         }
 
         // Spawn the item near the pedestal
         Vector3 spawnPosition = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z);
         Instantiate(shopItemPrefab, spawnPosition, Quaternion.identity);
-        Debug.Log($"Dropped {itemName} at {spawnPosition}");
     }
 
     private void HideAllItemImages()
@@ -203,7 +188,7 @@ public class shopHandler : MonoBehaviour
 
     private void SetItemImage(string path, bool active)
     {
-        Transform child = ShopPurchaseConfirmationUI.transform.Find(path);
+        Transform child = shopPurchaseConfirmationUI.transform.Find(path);
         if (child != null)
         {
             child.gameObject.SetActive(active);
@@ -212,7 +197,7 @@ public class shopHandler : MonoBehaviour
 
     private void SetItemText(string path, string text)
     {
-        Transform child = ShopPurchaseConfirmationUI.transform.Find(path);
+        Transform child = shopPurchaseConfirmationUI.transform.Find(path);
         if (child != null)
         {
             TextMeshProUGUI tmp = child.GetComponent<TextMeshProUGUI>();
@@ -222,7 +207,7 @@ public class shopHandler : MonoBehaviour
 
     private void SetItemBuffText(string path, string text, Color color)
     {
-        Transform child = ShopPurchaseConfirmationUI.transform.Find(path);
+        Transform child = shopPurchaseConfirmationUI.transform.Find(path);
         if (child != null)
         {
             TextMeshProUGUI tmp = child.GetComponent<TextMeshProUGUI>();
@@ -236,7 +221,7 @@ public class shopHandler : MonoBehaviour
 
     private void SetPriceText(string path, string price)
     {
-        Transform child = ShopPurchaseConfirmationUI.transform.Find(path);
+        Transform child = shopPurchaseConfirmationUI.transform.Find(path);
         if (child != null)
         {
             TextMeshProUGUI tmp = child.GetComponent<TextMeshProUGUI>();
@@ -246,7 +231,7 @@ public class shopHandler : MonoBehaviour
 
     private void SetCurrencyImage(string path, bool active)
     {
-        Transform child = ShopPurchaseConfirmationUI.transform.Find(path);
+        Transform child = shopPurchaseConfirmationUI.transform.Find(path);
         if (child != null)
         {
             child.gameObject.SetActive(active);
