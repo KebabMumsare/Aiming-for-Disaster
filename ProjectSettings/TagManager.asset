@@ -16,6 +16,7 @@ TagManager:
   - SpawnPoint
   - FloorTiles
   - FloorTile
+  - ShopDoor
   layers:
   - Default
   - TransparentFX

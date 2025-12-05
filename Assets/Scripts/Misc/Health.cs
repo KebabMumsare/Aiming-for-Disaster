@@ -81,7 +81,8 @@ public class Health : MonoBehaviour
             }
             if (CompareTag("Player"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                // load scene with index 0
+                SceneManager.LoadScene(0);
             }
     }
 
