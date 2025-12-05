@@ -81,6 +81,26 @@ public class Health : MonoBehaviour
             }
             if (CompareTag("Player"))
             {
+                // Reset Player State
+                GetComponent<Currencies>()?.Reset();
+                GetComponent<PlayerXP>()?.Reset();
+                GetComponent<SkillManager>()?.Reset();
+                
+                // Find InventoryManager (it might be on a separate object or the player)
+                // Based on previous file reads, InventoryManager has a reference to Health (Player), 
+                // but Health doesn't seem to have a direct reference to InventoryManager.
+                // However, InventoryManager is likely a singleton or easily findable.
+                // Let's try to find it.
+                var inventoryManager = FindFirstObjectByType<InventoryManager>();
+                if (inventoryManager != null)
+                {
+                    inventoryManager.Reset();
+                }
+
+                // Reset Health
+                currentHealth = maxHealth;
+                OnHealthChanged?.Invoke(currentHealth, maxHealth);
+
                 // load scene with index 0
                 SceneManager.LoadScene(0);
             }

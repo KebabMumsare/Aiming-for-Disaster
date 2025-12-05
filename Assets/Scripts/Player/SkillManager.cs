@@ -99,4 +99,24 @@ public class SkillManager : MonoBehaviour
             return playerHealth.maxHealth;
         return 0f;
     }
+
+    public void Reset()
+    {
+        speedLevel = 0;
+        healthLevel = 0;
+        healingLevel = 0;
+        
+        // Reset modifiers
+        if (playerMover != null)
+        {
+             // Assuming base multiplier is 1f
+             playerMover.SetSkillSpeedMultiplier(1f);
+        }
+
+        if (playerHealth != null)
+        {
+            // Reset max health multiplier to 1f
+            playerHealth.SetMaxHealthMultiplier(1f);
+        }
+    }
 }

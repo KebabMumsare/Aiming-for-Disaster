@@ -62,4 +62,17 @@ public class PlayerXP : MonoBehaviour
     {
         
     }
+
+    public void Reset()
+    {
+        currentXP = 0f;
+        currentLevel = 1f;
+        xpToNextLevel = 100f; // Reset to initial value
+        skillPoints = 1; // Reset to initial value
+        xpMultiplier = 1f;
+        
+        if (xpText != null) xpText.text = "XP: " + currentXP + " / " + xpToNextLevel;
+        if (levelText != null) levelText.text = "LVL:" + currentLevel;
+        if (skillPointsText != null) skillPointsText.text = "SP:" + skillPoints;
+    }
 }

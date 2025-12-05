@@ -70,4 +70,12 @@ public class Currencies : MonoBehaviour
             currentMagazinesText.text = currentMagazines.ToString();
         }
     }
+
+    public void Reset()
+    {
+        currentBullets = 0;
+        currentMagazines = 0;
+        UpdateBulletsUI();
+        UpdateMagazinesUI();
+    }
 }

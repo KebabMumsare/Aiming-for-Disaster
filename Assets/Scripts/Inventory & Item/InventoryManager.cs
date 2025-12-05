@@ -454,4 +454,31 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    public void Reset()
+    {
+        // Clear all slots
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            
+            if (itemInSlot != null)
+            {
+                Destroy(itemInSlot.gameObject);
+            }
+
+            // If it's a weapon slot, unequip
+            if (slot is InventoryWeaponSlot weaponSlot)
+            {
+                weaponSlot.UnequipWeapon();
+            }
+            
+            slot.Deselect();
+        }
+
+        selectedSlot = -1;
+        ChangeSelectedSlot(0); // Select first slot again
+        CalculatePassiveBuffs(); // Should reset buffs to 0
+    }
 }
