@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 0}
   detectionRange: 10
-  xpReward: 25
+  xpReward: 30
   bulletsReward: 4
   magazinesReward: 2
   projectilePrefab: {fileID: 2074973746105568760, guid: 348748dff0ae1ae43b52aa6bdba64442, type: 3}
