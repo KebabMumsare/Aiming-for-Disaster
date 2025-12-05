@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -3232310038938315753, guid: 7ecf3c57f13a7234d947285c85eef6a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,7 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToPickup: {fileID: 11400000, guid: 6e13195cab544424987448da4edf0ff8, type: 2}
   inventoryManager: {fileID: 0}
-  pickupDelay: 1
 --- !u!61 &3149154499272538845
 BoxCollider2D:
   m_ObjectHideFlags: 0
