@@ -59,7 +59,7 @@ public class Currencies : MonoBehaviour
     {
         if (currentBulletsText != null)
         {
-            currentBulletsText.text = "Bullets:" + currentBullets;
+            currentBulletsText.text = currentBullets.ToString();
         }
     }
 
@@ -67,7 +67,7 @@ public class Currencies : MonoBehaviour
     {
         if (currentMagazinesText != null)
         {
-            currentMagazinesText.text = "Mags:" + currentMagazines;
+            currentMagazinesText.text = currentMagazines.ToString();
         }
     }
 }
