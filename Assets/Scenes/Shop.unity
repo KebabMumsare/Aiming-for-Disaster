@@ -386,7 +386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopCollider: {fileID: 631800879}
-  ShopPurchaseConfirmationUI: {fileID: 0}
   shopItemPrefab: {fileID: 2079524359877513194, guid: 31ac10c94d4978b4ca38e3f355f0385a, type: 3}
 --- !u!43 &648964874
 Mesh:
@@ -1540,7 +1539,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopCollider: {fileID: 1238909413}
-  ShopPurchaseConfirmationUI: {fileID: 0}
   shopItemPrefab: {fileID: 5467722669851473824, guid: 3db8b466d1e9ad648bbd9a9d14a49a54, type: 3}
 --- !u!1 &1290946229
 GameObject:
@@ -1635,7 +1633,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopCollider: {fileID: 1290946231}
-  ShopPurchaseConfirmationUI: {fileID: 0}
   shopItemPrefab: {fileID: 6563710503016904218, guid: d59a8348303b37746820e8a115f0a11d, type: 3}
 --- !u!1001 &1298979075
 PrefabInstance:
