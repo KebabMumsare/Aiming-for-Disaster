@@ -5441,6 +5441,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1885576136}
     m_Modifications:
     - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6602046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
       propertyPath: m_PointLightOuterRadius
       value: 2
       objectReference: {fileID: 0}
@@ -7695,6 +7703,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1885576136}
     m_Modifications:
     - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6602046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
       propertyPath: m_PointLightOuterRadius
       value: 2
       objectReference: {fileID: 0}
@@ -7853,6 +7869,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1885576136}
     m_Modifications:
     - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6602046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
       propertyPath: m_PointLightOuterRadius
       value: 2
       objectReference: {fileID: 0}
@@ -7922,6 +7946,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1885576136}
     m_Modifications:
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6602046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
     - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
       propertyPath: m_Intensity
       value: 1
@@ -8820,6 +8852,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1885576136}
     m_Modifications:
     - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6602046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
       propertyPath: m_PointLightOuterRadius
       value: 2
       objectReference: {fileID: 0}
@@ -8890,6 +8930,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1885576136}
     m_Modifications:
     - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6602046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
       propertyPath: m_PointLightOuterRadius
       value: 2
       objectReference: {fileID: 0}
@@ -8959,6 +9007,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1885576136}
     m_Modifications:
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6602046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
     - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
       propertyPath: m_PointLightOuterRadius
       value: 2
@@ -9068,6 +9124,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1885576136}
     m_Modifications:
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6602046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
     - target: {fileID: 2124073445910247579, guid: d16cf6add99ede246a48cc1880fd87cd, type: 3}
       propertyPath: m_PointLightOuterRadius
       value: 2
