@@ -6758,6 +6758,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7164587207332394142, guid: 104a1223e0f6eb54db0e822ae20a8991, type: 3}
+      propertyPath: maxLootBoxes
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164587207332394142, guid: 104a1223e0f6eb54db0e822ae20a8991, type: 3}
+      propertyPath: minLootBoxes
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7324354755822787538, guid: 104a1223e0f6eb54db0e822ae20a8991, type: 3}
       propertyPath: m_Name
       value: Room

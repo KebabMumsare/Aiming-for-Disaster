@@ -169,8 +169,8 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   detectionRange: 10
   xpReward: 30
-  bulletsReward: 4
-  magazinesReward: 2
+  bulletsReward: 5
+  magazinesReward: 0
   projectilePrefab: {fileID: 2074973746105568760, guid: 348748dff0ae1ae43b52aa6bdba64442, type: 3}
   attackRange: 12
   keepDistance: 6

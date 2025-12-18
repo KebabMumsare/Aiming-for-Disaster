@@ -410,7 +410,7 @@ MonoBehaviour:
   detectionRange: 5
   xpReward: 80
   bulletsReward: 10
-  magazinesReward: 2
+  magazinesReward: 1
 --- !u!114 &267635044131732112
 MonoBehaviour:
   m_ObjectHideFlags: 0
