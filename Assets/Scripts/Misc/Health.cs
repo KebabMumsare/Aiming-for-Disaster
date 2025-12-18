@@ -101,8 +101,8 @@ public class Health : MonoBehaviour
                 currentHealth = maxHealth;
                 OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
-                // load scene with index 0
-                SceneManager.LoadScene(0);
+                // load scene with index 1
+                SceneManager.LoadScene(1);
             }
     }
 
