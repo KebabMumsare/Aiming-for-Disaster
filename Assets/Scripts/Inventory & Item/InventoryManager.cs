@@ -1,4 +1,4 @@
-using Unity.VisualScripting.ReorderableList;
+
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
